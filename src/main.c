@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:29:59 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:58:53 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	ft_game(char *path)
 void	ft_info_init(t_game *game)
 {
 	game->mlx = mlx_init();
+	game->map = NULL;
 	game->n.path = 0;
 	game->s.path = 0;
 	game->w.path = 0;
@@ -43,10 +44,7 @@ int	main(int ac, char **av)
 
 	if (ft_get_info(&game, av[1]))
 		return (1);
-		
-	//if (ft_map_check(av[1]))
-	//	return (1);
-	
+
 	ft_game(av[1]);
 	return (0);
 }

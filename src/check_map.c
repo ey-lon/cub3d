@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:41:18 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:36:06 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:52:34 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,6 @@ int	ft_elem_count_check(char **mat)
 
 int	ft_check_map(char **mat)
 {
-	if (mat)
-		ft_printmat(mat);
 	if (!mat)
 		return (ft_dprintf(2, "Error\nEmpty map.\n") * 0 + 1);
 	else if (ft_wall_check(mat))

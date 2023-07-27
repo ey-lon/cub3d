@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:37:19 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/27 17:59:09 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,17 @@ int	ft_check_leftovers(int fd)
 	return (check);
 }
 
+void	ft_print_info(t_game *game)
+{
+	printf("north   = %s\n", game->n.path);
+	printf("south   = %s\n", game->s.path);
+	printf("west    = %s\n", game->w.path);
+	printf("east    = %s\n", game->e.path);
+	printf("floor   = %d\n", game->floor);
+	printf("ceiling = %d\n", game->ceiling);
+	ft_printmat(game->map);
+}
+
 int	ft_get_info(t_game *game, char *path)
 {
 	int		fd;
@@ -51,7 +62,10 @@ int	ft_get_info(t_game *game, char *path)
 		ft_freemat(game->map);
 	}
 	else
+	{
 		ft_get_imgs_xpm(game);
+		ft_print_info(game);
+	}
 	close (fd);
 	return (check);
 }

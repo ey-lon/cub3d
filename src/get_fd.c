@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:39:02 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 10:43:38 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/27 18:03:04 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_check_ifdir(char *path)
 	fd = open(path, O_DIRECTORY);
 	if (fd == -1)
 		return (0);
-	ft_dprintf(2, "Error\n%s: Path is a directory.\n", path);
+	ft_dprintf(2, "Error\nPath is a directory: %s\n", path);
 	close(fd);
 	return (1);
 }
@@ -36,13 +36,14 @@ int	ft_get_fd(char *path, char *type)
 	if (ft_type_check(path, type))
 	{
 		fd = -1;
-		ft_dprintf(2, "Error\n%s: Invalid file type (%s).\n", path, type);
+		ft_dprintf(2, "Error\nInvalid file type: %s (expected \"%s\").\n", \
+			path, type);
 	}
 	else if (!ft_check_ifdir(path))
 	{
 		fd = open(path, O_RDONLY);
 		if (fd < 0)
-			ft_dprintf(2, "Error\n%s: Invalid path.\n", path);
+			ft_dprintf(2, "Error\nInvalid path: %s\n", path);
 	}
 	return (fd);
 }

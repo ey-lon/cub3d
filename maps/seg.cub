@@ -1,0 +1,16 @@
+NO ./pics/greystone.xpm
+SO ./pics/greystone.xpm
+WE ./pics/greystone.xpm
+EA ./pics/greystone.xpm
+
+C 255,255,255
+F 255,255,255
+
+111111111111
+100000010001
+100000011111
+100000000001
+111000000001
+1110000N0001
+100000000001
+111111111111

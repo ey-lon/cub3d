@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_srncmp.c                                    :+:      :+:    :+:   */
+/*   ft_printmat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 11:05:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/06/02 11:08:37 by abettini         ###   ########.fr       */
+/*   Created: 2023/06/14 16:55:34 by abettini          #+#    #+#             */
+/*   Updated: 2023/07/27 14:07:03 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_rev_strncmp(char *s1, char *s2, int n)
+void	ft_printmat(char **mat)
 {
-	int	i;
-	int	j;
+	int	y;
 
-	i = ft_strlen(s1) - 1;
-	j = ft_strlen(s2) - 1;
-	while (i >= 0 && j >= 0 && n > 0)
+	if (mat)
 	{
-		if (s1[i] != s2[j])
-			return (s1[i] - s2[j]);
-		i--;
-		j--;
-		n--;
+		y = 0;
+		while (mat[y])
+		{
+			ft_putstr_fd(mat[y], 1);
+			write(1, "\n", 1);
+			y++;
+		}
 	}
-	if (n != 0 && i < 0 && j >= 0)
-		return (s2[j]);
-	else if (n != 0 && j < 0 && i >= 0)
-		return (s1[i]);
-	return (0);
 }
-

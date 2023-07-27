@@ -6,7 +6,7 @@
 #    By: abettini <abettini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 14:36:43 by abettini          #+#    #+#              #
-#    Updated: 2023/05/30 14:26:08 by abettini         ###   ########.fr        #
+#    Updated: 2023/07/27 14:34:56 by abettini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,6 @@ RED = \e[1;31m
 CYAN = \e[1;36m
 BLUE = \e[1;34m
 YELL = \e[0;33m
-TCOL = $(CYAN)
-RMD = $(GREEN)successfully $(RED)removed$(NOCOL)
-CMP = $(GREEN)successfully compiled$(NOCOL)
-ALC = $(YELL)already compiled$(NOCOL)
 
 #----------------------------------------------
 
@@ -39,6 +35,7 @@ LP1F = libft_part_1/
 LP2F = libft_part_2/
 LP3F = libft_lists/
 PTFF = ft_printf/
+DPTFF = ft_dprintf/
 GNLF = get_next_line/
 OTHF = other/
 
@@ -105,6 +102,21 @@ PTF :=	ft_printf.c \
 	ft_ptf_flags_utils.c \
 	ft_ptf_utils.c
 
+#FT_DPRINTF------------------------------------
+
+DPTF :=	ft_dprintf.c \
+	ft_dptf_chr.c \
+	ft_dptf_str.c \
+	ft_dptf_dec.c \
+	ft_dptf_uns.c \
+	ft_dptf_hex.c \
+	ft_dptf_ptr.c \
+	ft_dptf_unknown.c \
+	ft_dptf_flags.c \
+	ft_dptf_flags_set.c \
+	ft_dptf_flags_utils.c \
+	ft_dptf_utils.c
+
 #GET_NEXT_LINE---------------------------------
 
 GNL :=	get_next_line.c
@@ -114,10 +126,13 @@ GNL :=	get_next_line.c
 OTH := ft_isspace.c \
 	ft_ult_strjoin.c \
 	ft_rev_split.c \
+	ft_printmat.c \
 	ft_freemat.c \
 	ft_matlen.c \
 	ft_matjoin.c \
-	ft_ult_matjoin.c
+	ft_ult_matjoin.c \
+	ft_strlen_mod.c \
+	ft_rev_strncmp.c
 
 #add_folder_name-------------------------------
 
@@ -125,6 +140,7 @@ PT1 := $(addprefix $(LP1F),$(PT1))
 PT2 := $(addprefix $(LP2F),$(PT2))
 BNS := $(addprefix $(LP3F),$(BNS))
 PTF := $(addprefix $(PTFF),$(PTF))
+DPTF := $(addprefix $(DPTFF),$(DPTF))
 GNL := $(addprefix $(GNLF),$(GNL))
 OTH := $(addprefix $(OTHF),$(OTH))
 
@@ -134,6 +150,7 @@ OBJ_S = $(PT1:.c=.o) \
 	$(PT2:.c=.o) \
 	$(BNS:.c=.o) \
 	$(PTF:.c=.o) \
+	$(DPTF:.c=.o) \
 	$(GNL:.c=.o) \
 	$(OTH:.c=.o)
 
@@ -145,25 +162,16 @@ OBJ_S = $(PT1:.c=.o) \
 all: $(NAME)
 
 $(NAME): $(OBJ_S)
-	if [ -f $(NAME) ]; then\
-		echo "$(TCOL)$(NAME) $(ALC)";\
-	else\
-		ar -rcs $@ $^;\
-		echo "$(TCOL)$(NAME) $(CMP)";\
-	fi
-
+	ar -rcs $@ $^
+	echo "$(CYAN)[make - $(NAME)]$(NOCOL)"
 
 clean:
-	if [ `find . -name "*.o" | wc -l` != 0 ]; then\
-		$(RM) $(OBJ_S);\
-		echo "$(TCOL)object files ($(NAME)) $(RMD)";\
-	fi
+	$(RM) $(OBJ_S)
+	echo "$(CYAN)[make clean - $(NAME)]$(NOCOL)"
 
 fclean: clean
-	if [ -f $(NAME) ]; then\
-		$(RM) $(NAME);\
-		echo "$(TCOL)$(NAME) $(RMD)";\
-	fi
+	$(RM) $(NAME)
+	echo "$(CYAN)[make fclean - $(NAME)]$(NOCOL)"
 
 re: fclean all
 

@@ -1,36 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_srncmp.c                                    :+:      :+:    :+:   */
+/*   ft_dptf_chr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 11:05:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/06/02 11:08:37 by abettini         ###   ########.fr       */
+/*   Created: 2022/10/18 14:23:55 by abettini          #+#    #+#             */
+/*   Updated: 2023/07/03 10:13:43 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libftdprintf.h"
 
-int	ft_rev_strncmp(char *s1, char *s2, int n)
+int	ft_dprint_chr(int fd, int c, t_ptf ptf)
 {
-	int	i;
-	int	j;
+	int	print_len;
 
-	i = ft_strlen(s1) - 1;
-	j = ft_strlen(s2) - 1;
-	while (i >= 0 && j >= 0 && n > 0)
-	{
-		if (s1[i] != s2[j])
-			return (s1[i] - s2[j]);
-		i--;
-		j--;
-		n--;
-	}
-	if (n != 0 && i < 0 && j >= 0)
-		return (s2[j]);
-	else if (n != 0 && j < 0 && i >= 0)
-		return (s1[i]);
-	return (0);
+	print_len = 0;
+	if (!ft_flag_check(ptf.flags, PTF_MINUS))
+		print_len += ft_dprint_special(fd, ptf.pad, ptf.pad_count - 1);
+	print_len += write(fd, &c, 1);
+	if (ft_flag_check(ptf.flags, PTF_MINUS))
+		print_len += ft_dprint_special(fd, ptf.pad, ptf.pad_count - 1);
+	return (print_len);
 }
-

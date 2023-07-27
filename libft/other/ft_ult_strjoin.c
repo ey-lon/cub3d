@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:26:20 by abettini          #+#    #+#             */
-/*   Updated: 2023/04/14 15:05:29 by abettini         ###   ########.fr       */
+/*   Updated: 2023/06/13 16:39:50 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ char	*ft_ult_strjoin(int n, ...)
 	if (n < 1)
 		return (NULL);
 	temp = malloc(sizeof(char) * 1);
+	if (temp)
+		return (NULL);
 	*temp = '\0';
 	va_start(ap, n);
 	while (n > 0)

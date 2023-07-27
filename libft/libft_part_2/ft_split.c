@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 13:29:50 by abettini          #+#    #+#             */
-/*   Updated: 2023/03/12 20:56:15 by marvin           ###   ########.fr       */
+/*   Updated: 2023/06/13 16:37:00 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char	**ft_split(char const *s, char c)
 
 	count = ft_str_count(s, c);
 	mat = malloc(sizeof(char *) * (count + 1));
+	if (!mat)
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (j < count)

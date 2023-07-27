@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rev_srncmp.c                                    :+:      :+:    :+:   */
+/*   free_stuff_1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/02 11:05:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/06/02 11:08:37 by abettini         ###   ########.fr       */
+/*   Created: 2023/07/27 17:14:26 by abettini          #+#    #+#             */
+/*   Updated: 2023/07/27 17:30:04 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-int	ft_rev_strncmp(char *s1, char *s2, int n)
+void	ft_free_imgs_paths(t_game *game)
 {
-	int	i;
-	int	j;
-
-	i = ft_strlen(s1) - 1;
-	j = ft_strlen(s2) - 1;
-	while (i >= 0 && j >= 0 && n > 0)
-	{
-		if (s1[i] != s2[j])
-			return (s1[i] - s2[j]);
-		i--;
-		j--;
-		n--;
-	}
-	if (n != 0 && i < 0 && j >= 0)
-		return (s2[j]);
-	else if (n != 0 && j < 0 && i >= 0)
-		return (s1[i]);
-	return (0);
+	free(game->n.path);
+	free(game->s.path);
+	free(game->w.path);
+	free(game->e.path);
 }
 
+/*
+int	ft_free(char *str)
+{
+	free(str);
+	return (0);
+}
+*/

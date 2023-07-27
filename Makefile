@@ -16,7 +16,7 @@ CC = cc
 
 RM = rm -rf
 
-NAME = cub3d
+NAME = cub3D
 
 CC_FLAGS = -no-pie -Wall -Werror -Wextra -g
 
@@ -37,8 +37,15 @@ LIBFT = libft.a
 MLX = libmlx.a
 
 SRC = main.c \
-	map_check.c \
-	mat_fd.c
+	get_fd.c \
+	get_info.c \
+	get_textures.c \
+	get_images_paths.c \
+	get_images_xpm.c \
+	get_colors.c \
+	get_map.c \
+	check_map.c \
+	free_stuff_1.c
 
 #----------------------------------------------
 #PREFIXES
@@ -51,14 +58,19 @@ LIBFT := $(addprefix $(LFT_P),$(LIBFT))
 #OBJECTS
 
 OBJ = $(SRC:.c=.o)
+%.o : %.c
+	$(CC) -c $< $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
 
 #----------------------------------------------
 #RULES
 
 all: $(NAME)
 
-$(NAME):
-	$(CC) $(CC_FLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
+$(NAME): libcomp $(OBJ)
+	$(CC) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
+
+libcomp:
+	make -C $(LFT_P)
 
 libft_clean:
 	make clean -C $(LFT_P)

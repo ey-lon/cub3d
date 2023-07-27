@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:48:23 by abettini          #+#    #+#             */
-/*   Updated: 2023/06/02 10:59:47 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/27 14:00:54 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdio.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -73,16 +74,21 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 //ft_printf -----------------------------------------------------------------
 int		ft_printf(const char *str, ...);
+//ft_dprintf ----------------------------------------------------------------
+int		ft_dprintf(int fd, const char *str, ...);
 //get_next_line -------------------------------------------------------------
 char	*get_next_line(int fd);
 //other ---------------------------------------------------------------------
 int		ft_isspace(char c);
 char	*ft_ult_strjoin(int n, ...);
 char	*ft_rev_split(char **mat);
+void	ft_printmat(char **mat);
 int		ft_matlen(char **mat);
 void	ft_freemat(char **mat);
 char	**ft_matjoin(char **mat1, char **mat2);
 char	**ft_ult_matjoin(int n, ...);
-int		ft_rev_strncmp(char	*s1, char *s2, int n);
+int		ft_rev_strncmp(char *s1, char *s2, int n);
+int		ft_strlen_mod(char *str, char end);
+int		ft_strlen_mod2(char *str, char *end);
 
 #endif

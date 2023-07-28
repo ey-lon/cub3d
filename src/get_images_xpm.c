@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:26:09 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:29:12 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/28 15:23:39 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	*ft_get_single_img_xpm(void *mlx, t_image *img)
 
 void	ft_get_imgs_xpm(t_game *game)
 {
-	game->n.img = ft_get_single_img_xpm(game->mlx, &(game->n));
-	game->s.img = ft_get_single_img_xpm(game->mlx, &(game->s));
-	game->w.img = ft_get_single_img_xpm(game->mlx, &(game->w));
-	game->e.img = ft_get_single_img_xpm(game->mlx, &(game->e));
+	game->n.ptr = ft_get_single_img_xpm(game->mlx, &(game->n));
+	game->s.ptr = ft_get_single_img_xpm(game->mlx, &(game->s));
+	game->w.ptr = ft_get_single_img_xpm(game->mlx, &(game->w));
+	game->e.ptr = ft_get_single_img_xpm(game->mlx, &(game->e));
 }

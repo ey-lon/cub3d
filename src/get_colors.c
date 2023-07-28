@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 10:24:35 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/28 16:37:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,16 @@ int	ft_get_single_col(char **s, int comma)
 	return (col);
 }
 
+int	ft_check_col_err(int *color)
+{
+	if (*color != -1)
+	{
+		ft_dprintf(2, "Error\nReassignment of color.\n");
+		return (1);
+	}
+	return (0);
+}
+
 int	ft_get_color(int *color, char **s)
 {
 	char	*str;
@@ -49,7 +59,8 @@ int	ft_get_color(int *color, char **s)
 	int		b;
 
 	str = *s;
-	if (*color != -1 || !ft_isspace(str[1]))
+	
+	if (ft_check_col_err(color) || !ft_isspace(str[1]))
 		return (-1);
 	str += 1;
 	while (ft_isspace(*str))

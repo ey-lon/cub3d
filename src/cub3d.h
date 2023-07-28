@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:37:51 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/28 12:40:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void	ft_get_imgs_xpm(t_game *game);
 
 //FREE---------------------------------------
 void	ft_free_imgs_paths(t_game *game);
+void	ft_free_game(t_game *game);
 
 #endif

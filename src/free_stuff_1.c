@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:46:17 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/28 12:49:54 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,29 @@ void	ft_free_imgs_paths(t_game *game)
 		free(game->e.path);
 }
 
-/*
-int	ft_free(char *str)
+void	ft_destroy_imgs(t_game *game)
 {
-	if (str)
-		free(str);
+	mlx_destroy_image(game->mlx, game->n.img);
+	mlx_destroy_image(game->mlx, game->s.img);
+	mlx_destroy_image(game->mlx, game->w.img);
+	mlx_destroy_image(game->mlx, game->e.img);
+}
+
+void	ft_free_game(t_game *game)
+{
+	ft_freemat(game->map);
+	ft_destroy_imgs(game);
+	ft_free_imgs_paths(game);
+	//mlx_destroy_window(game->mlx, game->win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+}
+
+/*
+int	ft_free(void *ptr)
+{
+	if (ptr)
+		free(ptr);
 	return (0);
 }
 */

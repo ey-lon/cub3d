@@ -25,9 +25,10 @@ MLX_FLAGS = -lm -lX11 -lXext
 #----------------------------------------------
 #PATHS
 
-SRC_P = src/
-MLX_P = minilibx-linux/
-LFT_P = libft/
+SRC_F = src/
+MLX_F = minilibx-linux/
+LFT_F = libft/
+OBJ_F = obj/
 
 #----------------------------------------------
 #FILES
@@ -50,16 +51,18 @@ SRC = main.c \
 #----------------------------------------------
 #PREFIXES
 
-SRC := $(addprefix $(SRC_P),$(SRC))
-MLX := $(addprefix $(MLX_P),$(MLX))
-LIBFT := $(addprefix $(LFT_P),$(LIBFT))
+MLX := $(addprefix $(MLX_F),$(MLX))
+LIBFT := $(addprefix $(LFT_F),$(LIBFT))
 
 #----------------------------------------------
 #OBJECTS
 
 OBJ = $(SRC:.c=.o)
-%.o : %.c
-	$(CC) -c $< $(LIBFT) $(MLX) $(MLX_FLAGS) -o $@
+OBJ := $(addprefix $(OBJ_F),$(OBJ))
+
+$(OBJ_F)%.o : $(SRC_F)%.c
+	mkdir -p $(OBJ_F)
+	$(CC) -c $< -o $@
 
 #----------------------------------------------
 #RULES
@@ -68,25 +71,29 @@ all: $(NAME)
 
 $(NAME): libcomp $(OBJ)
 	$(CC) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
+	echo "$(CYAN)[make - $(NAME)]$(NOCOL)"
 
 libcomp:
-	make -C $(LFT_P)
+	make -C $(LFT_F)
 
 libft_clean:
-	make clean -C $(LFT_P)
+	make clean -C $(LFT_F)
 
 libft_fclean:
-	make fclean -C $(LFT_P)
+	make fclean -C $(LFT_F)
 
 clean: libft_clean
 	$(RM) $(OBJ)
+	$(RM) $(OBJ_F)
+	echo "$(CYAN)[make clean - $(NAME)]$(NOCOL)"
 
-fclean: libft_clean clean
+fclean: libft_fclean clean
 	$(RM) $(NAME)
+	echo "$(CYAN)[make fclean - $(NAME)]$(NOCOL)"
 
 re: fclean all
 
-bonus:
+bonus: all
 
 .PHONY: $(NAME) all re clean fclean bonus
 

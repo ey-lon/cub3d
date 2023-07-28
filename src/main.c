@@ -6,14 +6,15 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:58:53 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/28 12:49:40 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_game(char *path)
+int	ft_game(t_game *game)
 {
+	ft_free_game(game);
 	return (0);
 }
 
@@ -45,6 +46,6 @@ int	main(int ac, char **av)
 	if (ft_get_info(&game, av[1]))
 		return (1);
 
-	ft_game(av[1]);
+	ft_game(&game);
 	return (0);
 }

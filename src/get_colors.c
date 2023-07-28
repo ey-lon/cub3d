@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 11:53:06 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/28 10:24:35 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	ft_get_color(int *color, char **s)
 	if (r != -1 && g != -1 && b != -1)
 		*color = (r << 16) + (g << 8) + (b << 0);
 	else
-		return (-1);
+		return (ft_dprintf(2, "Error\nInvalid color.\n") * 0 - 1);
 	*s = str;
 	return (1);
 }

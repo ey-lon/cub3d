@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 16:37:01 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/31 17:35:47 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,30 @@ int	ft_deal_key(int key, t_game *game)
 {
 	if (key == ESC)
 		ft_close(game);
+	ft_print_map(game);
+	if (key == KEY_W)
+		mlx_put_image_to_window(game->mlx, game->win.ptr, game->n.ptr, 1, 1);
+	else if (key == KEY_A)
+		mlx_put_image_to_window(game->mlx, game->win.ptr, game->w.ptr, 1, 1);
+	else if (key == KEY_S)
+		mlx_put_image_to_window(game->mlx, game->win.ptr, game->s.ptr, 1, 1);
+	else if (key == KEY_D)
+		mlx_put_image_to_window(game->mlx, game->win.ptr, game->e.ptr, 1, 1);
 	return (0);
 }
+
+/* int	ft_refresh(t_game *game)
+{
+	ft_print_map(game);
+	return (0);
+} */
 
 int	ft_game(t_game *game)
 {
 	game->win.ptr=ft_new_window(game, WIN_WIDTH, WIN_HEIGHT, WIN_NAME);
 	mlx_hook(game->win.ptr, 17, 0, ft_close, game);
 	mlx_hook(game->win.ptr, 2, 1L << 0, ft_deal_key, game);
+	//mlx_loop_hook(game->mlx, ft_refresh, game);
 	mlx_loop(game->mlx);
 	return (0);
 }
@@ -69,6 +85,9 @@ int	main(int ac, char **av)
 	ft_info_init(&game);
 	if (ft_get_info(&game, av[1]))
 		return (1);
+	game.mh = ft_matlen(game.map);
+	game.mw = ft_max_len(game.map);
+	//printf("%d\n", game.mh);
 	ft_game(&game);
 	return (0);
 }

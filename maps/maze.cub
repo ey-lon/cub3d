@@ -1,7 +1,7 @@
-NO ./pics/tnt.xpm
-SO ./pics/grass.xpm
-WE ./pics/bookshelf.xpm
-EA ./pics/cobblestone.xpm
+NO ./textures/tnt.xpm
+SO ./textures/grass.xpm
+WE ./textures/bookshelf.xpm
+EA ./textures/cobblestone.xpm
 
 C 0,0,0
 F 0,255,0

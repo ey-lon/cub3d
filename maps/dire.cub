@@ -1,7 +1,7 @@
-NO ./pics/greystone.xpm
-SO ./pics/bluestone.xpm
-WE ./pics/mossy.xpm
-EA ./pics/wood.xpm
+NO ./textures/greystone.xpm
+SO ./textures/bluestone.xpm
+WE ./textures/mossy.xpm
+EA ./textures/wood.xpm
 
 C 0,0,55
 F 255,0,0

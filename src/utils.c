@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 08:46:41 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/31 12:20:54 by abettini         ###   ########.fr       */
+/*   Created: 2023/07/31 11:02:01 by abettini          #+#    #+#             */
+/*   Updated: 2023/07/31 11:02:20 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+int	ft_max_len(char **mat)
 {
-	char	*p;
-	int		i;
-	int		j;
+	int x;
+	int y;
+	int len;
+	int	t_len;
 
-	i = 0;
-	j = ft_strlen(s1);
-	if (s1 != 0 && set != 0)
+	len = 0;
+	y = 0;
+	while (mat[y])
 	{
-		while (s1[i] && ft_strchr(set, s1[i]) != 0)
-			i++;
-		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) != 0 && j > i)
-			j--;
-		p = malloc(sizeof(char) * (j - i + 1));
-		if (p)
-			ft_strlcpy(p, &s1[i], j - i + 1);
+		t_len = ft_strlen(mat[y]);
+		if (t_len > len)
+			len = t_len;
+		y++;
 	}
-	else
-		p = 0;
-	return (p);
+	return (len);
 }

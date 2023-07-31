@@ -46,6 +46,8 @@ SRC = main.c \
 	get_colors.c \
 	get_map.c \
 	check_map.c \
+	print_map.c \
+	utils.c \
 	free_stuff_1.c
 
 #----------------------------------------------

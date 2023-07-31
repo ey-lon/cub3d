@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 16:31:45 by abettini         ###   ########.fr       */
+/*   Updated: 2023/07/31 11:03:57 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <math.h>
 
 # define SPACES "\t\n\v\f\r "
 # define WIN_NAME "cub3d"
@@ -28,14 +29,15 @@
 # define WIN_HEIGHT 720
 
 # define ESC 65307
-# define W 119
-# define A 97
-# define S 115
-# define D 100
-# define LEFT 65361
-# define RIGHT 65363
-# define UP 65362
-# define DOWN 65364
+# define KEY_W 119
+# define KEY_A 97
+# define KEY_S 115
+# define KEY_D 100
+# define ARR_LEFT 65361
+# define ARR_RIGHT 65363
+# define ARR_UP 65362
+# define ARR_DOWN 65364
+# define TS 64
 
 typedef struct s_image
 {
@@ -63,6 +65,8 @@ typedef struct s_game
 	char		**map;
 	void		*mlx;
 	t_window	win;
+	int			mh;
+	int			mw;
 }	t_game;
 
 int		ft_get_info(t_game *game, char *path);
@@ -75,5 +79,11 @@ void	ft_get_imgs_xpm(t_game *game);
 //FREE---------------------------------------
 void	ft_free_imgs_paths(t_game *game);
 void	ft_free_game(t_game *game);
+
+//UTILS--------------------------------------
+int		ft_max_len(char **mat);
+
+//PRINT_MAP----------------------------------
+void	ft_print_map(t_game *game);
 
 #endif

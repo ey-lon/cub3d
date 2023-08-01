@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 11:27:30 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/01 11:39:09 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_print_info(t_game *game)
 	printf("west    = %s\n", game->w.path);
 	printf("east    = %s\n", game->e.path);
 	printf("floor   = %d\n", game->floor);
-	printf("ceiling = %d\n", game->ceiling);
+	printf("ceiling = %d\n\n", game->ceiling);
 	ft_printmat(game->map);
 }
 

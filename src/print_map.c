@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:52 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/01 11:51:59 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/02 09:58:01 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_put_single_square(t_game *game, int mx, int my)
 		x = 0;
 		while (x < TS)
 		{
-			mlx_pixel_put(game->mlx, game->win.ptr, x + (TS * mx + (mx + 1)), y + (TS * my + (my + 1)), 0xEE1010);
+			mlx_pixel_put(game->mlx, game->win.ptr, x + (TS * mx), y + (TS * my), 0xEE1010);
 			x++;
 		}
 		y++;
@@ -59,9 +59,9 @@ void	ft_put_ver_line(t_game *game, int mx)
 	int	y;
 	char **mat = game->map;
 	
-	x = mx * TS + mx;
+	x = mx * TS;
 	y = 0;
-	while (y <= (game->mh * TS + game->mh))
+	while (y <= (game->mh * TS))
 	{
 		mlx_pixel_put(game->mlx, game->win.ptr, x, y, 0xFFFFFF);
 		y++;
@@ -74,9 +74,9 @@ void	ft_put_hor_line(t_game *game, int my)
 	int	y;
 	char **mat = game->map;
 	
-	y = my * TS + my;
+	y = my * TS;
 	x = 0;
-	while (x <= (game->mw * TS + game->mw))
+	while (x <= (game->mw * TS))
 	{
 		mlx_pixel_put(game->mlx, game->win.ptr, x, y, 0xFFFFFF);
 		x++;

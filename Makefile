@@ -49,7 +49,8 @@ SRC = main.c \
 	init_pos.c \
 	print_map.c \
 	utils.c \
-	free_stuff_1.c
+	free_stuff_1.c \
+	deal_key.c
 
 #----------------------------------------------
 #PREFIXES

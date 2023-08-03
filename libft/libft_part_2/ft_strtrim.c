@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 08:46:41 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/31 12:20:54 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/01 14:51:01 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) != 0 && j > i)
 			j--;
 		p = malloc(sizeof(char) * (j - i + 1));
-		if (p)
-			ft_strlcpy(p, &s1[i], j - i + 1);
+		if (!p)
+			return (NULL);
+		ft_strlcpy(p, &s1[i], j - i + 1);
 	}
 	else
-		p = 0;
+	{
+		p = malloc(sizeof(char));
+		if (!p)
+			return (NULL);
+		*p = '\0';
+	}
 	return (p);
 }

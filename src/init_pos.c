@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 10:40:17 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/01 10:41:24 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/02 10:32:31 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int	ft_get_px_py(char **mat, float *mx, float *my)
 		{
 			if (ft_strchr("NSWE", mat[y][x]))
 			{
-				*mx = x * TS - TS / 2;
-				*my = y * TS - TS / 2;
+				*mx = x * TS + TS / 2;
+				*my = y * TS + TS / 2;
 				return (0);
 			}
 			x += 1;

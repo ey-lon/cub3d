@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 14:48:23 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 14:00:54 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/01 15:20:43 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		ft_toupper(int ch);
 int		ft_tolower(int arg);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strcmp(char *s1, char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
@@ -84,11 +85,13 @@ char	*ft_ult_strjoin(int n, ...);
 char	*ft_rev_split(char **mat);
 void	ft_printmat(char **mat);
 int		ft_matlen(char **mat);
+int		ft_matlen_mod(char **mat, char *end);
 void	ft_freemat(char **mat);
 char	**ft_matjoin(char **mat1, char **mat2);
 char	**ft_ult_matjoin(int n, ...);
 int		ft_rev_strncmp(char *s1, char *s2, int n);
 int		ft_strlen_mod(char *str, char end);
 int		ft_strlen_mod2(char *str, char *end);
+char	**ft_split_2(char const *s, char *c);
 
 #endif

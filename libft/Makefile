@@ -6,7 +6,7 @@
 #    By: abettini <abettini@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/07 14:36:43 by abettini          #+#    #+#              #
-#    Updated: 2023/07/27 14:34:56 by abettini         ###   ########.fr        #
+#    Updated: 2023/08/01 15:21:26 by abettini         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ PT1 :=	ft_atoi.c \
 	ft_strlcat.c \
 	ft_strlcpy.c \
 	ft_strlen.c \
+	ft_strcmp.c \
 	ft_strncmp.c \
 	ft_strnstr.c \
 	ft_strrchr.c \
@@ -132,7 +133,8 @@ OTH := ft_isspace.c \
 	ft_matjoin.c \
 	ft_ult_matjoin.c \
 	ft_strlen_mod.c \
-	ft_rev_strncmp.c
+	ft_rev_strncmp.c \
+	ft_split_mod.c
 
 #add_folder_name-------------------------------
 

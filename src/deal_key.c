@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/09 12:06:15 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:08:58 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,9 +159,6 @@ void	ft_skybox(t_game *game)
 
 int	ft_deal_key(int key, t_game *game)
 {
-	//mlx_clear_window(game->mlx, game->win.ptr);
-	ft_skybox(game);
-	//printf("%f %f %f %f %f %f\n", game->coord.pos_x, game->coord.pos_y, game->coord.dir_x, game->coord.dir_y, SPEED_MOVE, SPEED_ROT);
 	if (key == ESC)
 		ft_close(game);
 	if (key == KEY_W)
@@ -171,7 +168,6 @@ int	ft_deal_key(int key, t_game *game)
 		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y + game->coord.dir_y * SPEED_MOVE)] == '0')
 			game->coord.pos_y += game->coord.dir_y * SPEED_MOVE;
 	}
-	//move backwards if no wall behind you
 	else if (key == KEY_S)
 	{
 		if (game->map[(int)(game->coord.pos_x - game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] == '0')
@@ -179,10 +175,8 @@ int	ft_deal_key(int key, t_game *game)
 		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y - game->coord.dir_y * SPEED_MOVE)] == '0')
 			game->coord.pos_y -= game->coord.dir_y * SPEED_MOVE;
 	}
-	//rotate to the right
 	else if (key == ARR_RIGHT)
 	{
-		//both camera direction and camera plane must be rotated
 		game->coord.old_dir_x = game->coord.dir_x;
 		game->coord.dir_x = game->coord.dir_x * cos(-SPEED_ROT) - game->coord.dir_y * sin(-SPEED_ROT);
 		game->coord.dir_y = game->coord.old_dir_x * sin(-SPEED_ROT) + game->coord.dir_y * cos(-SPEED_ROT);
@@ -190,10 +184,8 @@ int	ft_deal_key(int key, t_game *game)
 		game->coord.plane_x = game->coord.plane_x * cos(-SPEED_ROT) - game->coord.plane_y * sin(-SPEED_ROT);
 		game->coord.plane_y = game->coord.old_plane_x * sin(-SPEED_ROT) + game->coord.plane_y * cos(-SPEED_ROT);
 	}
-	//rotate to the left
 	else if (key == ARR_LEFT)
 	{
-		//both camera direction and camera plane must be rotated
 		game->coord.old_dir_x = game->coord.dir_x;
 		game->coord.dir_x = game->coord.dir_x * cos(SPEED_ROT) - game->coord.dir_y * sin(SPEED_ROT);
 		game->coord.dir_y = game->coord.old_dir_x * sin(SPEED_ROT) + game->coord.dir_y * cos(SPEED_ROT);
@@ -201,6 +193,7 @@ int	ft_deal_key(int key, t_game *game)
 		game->coord.plane_x = game->coord.plane_x * cos(SPEED_ROT) - game->coord.plane_y * sin(SPEED_ROT);
 		game->coord.plane_y = game->coord.old_plane_x * sin(SPEED_ROT) + game->coord.plane_y * cos(SPEED_ROT);
 	}
+	ft_skybox(game);
 	ft_view(game);
 	//ft_print_map(game);
 	return (0);

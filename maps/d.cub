@@ -1,13 +1,14 @@
-NO ./textures/purplestone.xpm       F    255,128,111 
+NO ./textures/purplestone.xpm
 
+SO ./textures/mossy.xpm
 
+WE ./textures/redbrick.xpm
 
+EA ./textures/wood.xpm 
 
-SO ./textures/mossy.xpm        WE               ./textures/redbrick.xpm 
+F 50,50,50    
 
-
-
-         EA    ./textures/wood.xpm              C 42,82,190        
+C 0,0,0        
 
 
 

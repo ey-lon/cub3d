@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 16:37:52 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 13:17:40 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,21 @@ int	ft_get_single_col(char **s, int comma)
 	if (!*str || col > 255 || col < 0)
 		return (-1);
 	i = 0;
-	while (*str && *str != '\n' && i < 3)
+	while (str[i])
 	{
-		if (ft_isdigit(*str))
-			str++;
-		else if (comma == 1 && i > 0 && *str == ',')
+		if (ft_isdigit(str[i]))
+			i++;
+		else if ((comma && str[i] == ',' && i > 0) \
+			|| (!comma && (!str[i] || ft_isspace(str[i]))))
 			break ;
 		else
 			return (-1);
-		i++;
 	}
-	if (comma == 1 && *str == ',')
-		str++;
-	else if ((comma == 1 && *str != ',') || (*str && !ft_isspace(*str)))
+	if (comma && str[i] == ',')
+		i++;
+	else if (comma)
 		return (-1);
-	*s = str;
+	*s = &str[i];
 	return (col);
 }
 

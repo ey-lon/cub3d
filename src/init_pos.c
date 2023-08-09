@@ -6,66 +6,73 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 10:40:17 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/02 10:32:31 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:32:42 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-float	ft_get_pa(char **mat)
+int	ft_get_dir(char c, t_coord *coord)
 {
-	int	x;
-	int	y;
-
-	y = 0;
-	while (mat[y])
+	if (c == 'N')
 	{
-		x = 0;
-		while (mat[y][x])
-		{
-			if (mat[y][x] == 'N')
-				return (PI + PI / 2);
-			if (mat[y][x] == 'S')
-				return (PI / 2);
-			if (mat[y][x] == 'W')
-				return (PI);
-			if (mat[y][x] == 'E')
-				return (0);
-			x += 1;
-		}
-		y += 1;
+		coord->dir_x = 0;
+		coord->dir_y = 1;
+		coord->plane_x = -0.66;
+		coord->plane_y = 0;
 	}
-	return (-1);
+	else if (c == 'S')
+	{
+		coord->dir_x = 0;
+		coord->dir_y = -1;
+		coord->plane_x = 0.66;
+		coord->plane_y = 0;
+	}
+	else if (c == 'W')
+	{
+		coord->dir_x = -1;
+		coord->dir_y = 0;
+		coord->plane_x = 0;
+		coord->plane_y = 0.66;
+	}
+	else if (c == 'E')
+	{
+		coord->dir_x = 1;
+		coord->dir_y = 0;
+		coord->plane_x = 0;
+		coord->plane_y = -0.66;
+	}
+	else
+		return (-1);
+	return (0);
 }
 
-int	ft_get_px_py(char **mat, float *mx, float *my)
+int	ft_get_pos_dir(t_coord *coord, char **mat)
 {
 	int	x;
 	int	y;
 
-	y = 0;
-	while (mat[y])
+	x = 0;
+	while (mat[x])
 	{
-		x = 0;
-		while (mat[y][x])
+		y = 0;
+		while (mat[x][y])
 		{
-			if (ft_strchr("NSWE", mat[y][x]))
+			if (ft_strchr("NSWE", mat[x][y]))
 			{
-				*mx = x * TS + TS / 2;
-				*my = y * TS + TS / 2;
+				coord->pos_x = x;
+				coord->pos_y = y;
+				ft_get_dir(mat[x][y], coord);
 				return (0);
 			}
-			x += 1;
+			y += 1;
 		}
-		y += 1;
+		x += 1;
 	}
 	return (1);
 }
 
-void	ft_init_pos(t_game *game)
+void	ft_init_coord(t_game *game)
 {
-	game->pos.pa = ft_get_pa(game->map);
-	game->pos.pdx = cos(game->pos.pa) * 5;
-	game->pos.pdy = sin(game->pos.pa) * 5;
-	ft_get_px_py(game->map, &game->pos.px, &game->pos.py);
+	ft_get_pos_dir(&game->coord, game->map);
 }

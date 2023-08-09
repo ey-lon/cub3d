@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/02 09:52:19 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:27:58 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define WIN_NAME "cub3d"
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
+# define SPEED_MOVE 0.1
+# define SPEED_ROT 0.1
 # define PI 3.1415926535
 
 # define TS 64
@@ -52,12 +54,25 @@ typedef struct s_window
 
 typedef struct s_coord
 {
-	float		pa;
-	float		pdx;
-	float		pdy;
-	float		px;
-	float		py;
+	float		pos_x;
+	float		pos_y;
+	float		dir_x;
+	float		dir_y;
+	float		plane_x;
+	float		plane_y;
+	float		old_dir_x;
+	float		old_plane_x;
 }	t_coord;
+
+typedef struct s_cam
+{
+	float	camera_x;
+	float	ray_dir_x;
+	float	ray_dir_y;
+	float	delta_dist_x;
+	float	delta_dist_y;
+}	t_cam;
+
 
 typedef struct s_game
 {
@@ -72,7 +87,7 @@ typedef struct s_game
 	t_window	win;
 	int			mh;
 	int			mw;
-	t_coord		pos;
+	t_coord		coord;
 }	t_game;
 
 int		ft_get_info(t_game *game, char *path);
@@ -81,7 +96,7 @@ int		ft_get_textures(t_game *game, int fd);
 int		ft_get_map(t_game *game, int fd);
 int		ft_check_map(char **mat);
 void	ft_get_imgs_xpm(t_game *game);
-void	ft_init_pos(t_game *game);
+void	ft_init_coord(t_game *game);
 
 //FREE---------------------------------------
 void	ft_free_imgs_paths(t_game *game);

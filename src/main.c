@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/02 09:51:13 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:33:36 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int ac, char **av)
 	ft_info_init(&game);
 	if (ft_get_info(&game, av[1]))
 		return (1);
-	ft_init_pos(&game);
+	ft_init_coord(&game);
 	game.mh = ft_matlen(game.map);
 	game.mw = ft_max_len(game.map);
 	ft_game(&game);

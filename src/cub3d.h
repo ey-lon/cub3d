@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/09 11:27:58 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:53:22 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,18 @@ typedef struct s_cam
 	float	ray_dir_y;
 	float	delta_dist_x;
 	float	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int 	step_x;
+	int		step_y;
 }	t_cam;
 
+typedef struct s_line
+{
+	int line_height;
+	int draw_start;
+	int draw_end;
+}	t_line;
 
 typedef struct s_game
 {

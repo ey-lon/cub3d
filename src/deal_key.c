@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/09 11:49:31 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:06:15 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ void	ft_view(t_game *game)
 	float	ray_dir_y;
 	float	delta_dist_x;
 	float	delta_dist_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	int 	map_x;
+	int		map_y;
+	double	perp_wall_dist;
+	int		step_x;
+	int		step_y;
+	int		hit;
+	int		side;
 
 	x = 0;
 	while (x < WIN_WIDTH)
@@ -40,13 +49,9 @@ void	ft_view(t_game *game)
 		ray_dir_y = game->coord.dir_y + game->coord.plane_y * camera_x;
 		
 		//which box of the map we're in
-		int map_x = game->coord.pos_x;
-		int map_y = game->coord.pos_y;
+		map_x = game->coord.pos_x;
+		map_y = game->coord.pos_y;
 
-		//length of ray from current position to next x or y-side
-		double side_dist_x;
-		double side_dist_y;
-		//length of ray from one x or y-side to next x or y-side
 		if (ray_dir_x)
 			delta_dist_x = fabs(1 / ray_dir_x);
 		else
@@ -56,15 +61,6 @@ void	ft_view(t_game *game)
 		else
 			delta_dist_y = (float)INT_MAX;
 
-		double perp_wall_dist;
-
-		//what direction to step in x or y-direction (either +1 or -1)
-		int step_x;
-		int step_y;
-
-		int hit = 0; //was there a wall hit?
-		int side; //was a NS or a EW wall hit?
-		//calculate step and initial sideDist
 		if (ray_dir_x < 0)
 		{
 			step_x = -1;
@@ -85,10 +81,11 @@ void	ft_view(t_game *game)
 			step_y = 1;
 			side_dist_y = (map_y + 1.0 - game->coord.pos_y) * delta_dist_y;
 		}
-		//perform DDA
+
+		//---CHECK FOR WALLS---
+		hit = 0;
 		while (hit == 0)
 		{
-			//jump to next map square, either in x-direction, or in y-direction
 			if (side_dist_x < side_dist_y)
 			{
 				side_dist_x += delta_dist_x;
@@ -101,40 +98,69 @@ void	ft_view(t_game *game)
 				map_y += step_y;
 				side = 1;
 			}
-			//Check if ray has hit a wall
 			if (game->map[map_x][map_y] == '1')
 				hit = 1;
 		}
-		//Calculate distance projected on camera direction (Euclidean distance would give fisheye effect!)
 		if(side == 0)
 			perp_wall_dist = (side_dist_x - delta_dist_x);
 		else
 			perp_wall_dist = (side_dist_y - delta_dist_y);
+		
+		//---DRAWING THE LINE---
+		int line_height;
+		int draw_start;
+		int draw_end;
 
-		//Calculate height of line to draw on screen
-		int lineHeight = (int)(WIN_HEIGHT / perp_wall_dist);
-
-		//calculate lowest and highest pixel to fill in current stripe
-		int drawStart = -lineHeight / 2 + WIN_HEIGHT / 2;
-		if(drawStart < 0)
-			drawStart = 0;
-		int drawEnd = lineHeight / 2 + WIN_HEIGHT / 2;
-		if(drawEnd >= WIN_HEIGHT)
-			drawEnd = WIN_HEIGHT - 1;
+		line_height = (int)(WIN_HEIGHT / perp_wall_dist);
+		draw_start = -line_height / 2 + WIN_HEIGHT / 2;
+		if(draw_start < 0)
+			draw_start = 0;
+		draw_end = line_height / 2 + WIN_HEIGHT / 2;
+		if(draw_end >= WIN_HEIGHT)
+			draw_end = WIN_HEIGHT - 1;
 
 		int col = BLUE;
 		if (side)
 			col /= 2;
 
-		ft_draw_ver_line(game, drawStart, drawEnd, x, col);
+		ft_draw_ver_line(game, draw_start, draw_end, x, col);
 
 		x++;
 	}
 }
 
+void	ft_skybox(t_game *game)
+{
+	int x;
+	int	y;
+
+	y = 0;
+	while (y < WIN_HEIGHT / 2)
+	{
+		x = 0;
+		while (x < WIN_WIDTH)
+		{
+			mlx_pixel_put(game->mlx, game->win.ptr, x, y, game->ceiling);
+			x++;
+		}
+		y++;
+	}
+	while (y < WIN_HEIGHT)
+	{
+		x = 0;
+		while (x < WIN_WIDTH)
+		{
+			mlx_pixel_put(game->mlx, game->win.ptr, x, y, game->floor);
+			x++;
+		}
+		y++;
+	}
+}
+
 int	ft_deal_key(int key, t_game *game)
 {
-	mlx_clear_window(game->mlx, game->win.ptr);
+	//mlx_clear_window(game->mlx, game->win.ptr);
+	ft_skybox(game);
 	//printf("%f %f %f %f %f %f\n", game->coord.pos_x, game->coord.pos_y, game->coord.dir_x, game->coord.dir_y, SPEED_MOVE, SPEED_ROT);
 	if (key == ESC)
 		ft_close(game);

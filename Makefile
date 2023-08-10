@@ -50,7 +50,8 @@ SRC = main.c \
 	print_map.c \
 	utils.c \
 	free_stuff_1.c \
-	deal_key.c
+	deal_key.c \
+	bg_img.c
 
 #----------------------------------------------
 #PREFIXES

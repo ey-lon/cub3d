@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/09 12:08:58 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/10 10:12:51 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,50 +129,22 @@ void	ft_view(t_game *game)
 	}
 }
 
-void	ft_skybox(t_game *game)
-{
-	int x;
-	int	y;
-
-	y = 0;
-	while (y < WIN_HEIGHT / 2)
-	{
-		x = 0;
-		while (x < WIN_WIDTH)
-		{
-			mlx_pixel_put(game->mlx, game->win.ptr, x, y, game->ceiling);
-			x++;
-		}
-		y++;
-	}
-	while (y < WIN_HEIGHT)
-	{
-		x = 0;
-		while (x < WIN_WIDTH)
-		{
-			mlx_pixel_put(game->mlx, game->win.ptr, x, y, game->floor);
-			x++;
-		}
-		y++;
-	}
-}
-
 int	ft_deal_key(int key, t_game *game)
 {
 	if (key == ESC)
 		ft_close(game);
 	if (key == KEY_W)
 	{
-		if (game->map[(int)(game->coord.pos_x + game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] == '0')
+		if (game->map[(int)(game->coord.pos_x + game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] != '1')
 			game->coord.pos_x += game->coord.dir_x * SPEED_MOVE;
-		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y + game->coord.dir_y * SPEED_MOVE)] == '0')
+		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y + game->coord.dir_y * SPEED_MOVE)] != '1')
 			game->coord.pos_y += game->coord.dir_y * SPEED_MOVE;
 	}
 	else if (key == KEY_S)
 	{
-		if (game->map[(int)(game->coord.pos_x - game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] == '0')
+		if (game->map[(int)(game->coord.pos_x - game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] != '1')
 			game->coord.pos_x -= game->coord.dir_x * SPEED_MOVE;
-		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y - game->coord.dir_y * SPEED_MOVE)] == '0')
+		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y - game->coord.dir_y * SPEED_MOVE)] != '1')
 			game->coord.pos_y -= game->coord.dir_y * SPEED_MOVE;
 	}
 	else if (key == ARR_RIGHT)
@@ -193,7 +165,7 @@ int	ft_deal_key(int key, t_game *game)
 		game->coord.plane_x = game->coord.plane_x * cos(SPEED_ROT) - game->coord.plane_y * sin(SPEED_ROT);
 		game->coord.plane_y = game->coord.old_plane_x * sin(SPEED_ROT) + game->coord.plane_y * cos(SPEED_ROT);
 	}
-	ft_skybox(game);
+	mlx_put_image_to_window(game->mlx, game->win.ptr, game->bg.img, 0, 0);
 	ft_view(game);
 	//ft_print_map(game);
 	return (0);

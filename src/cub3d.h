@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/09 11:53:22 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/10 10:04:17 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SPEED_MOVE 0.1
-# define SPEED_ROT 0.1
+# define SPEED_ROT 0.0001
 # define PI 3.1415926535
 
 # define TS 64
@@ -44,6 +44,16 @@ typedef struct s_image
 	int		height;
 	int		width;
 }	t_image;
+
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}	t_data;
+
 
 typedef struct s_window
 {
@@ -90,6 +100,7 @@ typedef struct s_game
 	t_image		s;
 	t_image		w;
 	t_image		e;
+	t_data		bg;
 	int			ceiling;
 	int			floor;
 	char		**map;
@@ -107,6 +118,7 @@ int		ft_get_map(t_game *game, int fd);
 int		ft_check_map(char **mat);
 void	ft_get_imgs_xpm(t_game *game);
 void	ft_init_coord(t_game *game);
+void	ft_bg_img(t_game *game);
 
 //FREE---------------------------------------
 void	ft_free_imgs_paths(t_game *game);

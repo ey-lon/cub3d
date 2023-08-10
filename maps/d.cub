@@ -4,11 +4,11 @@ SO ./textures/mossy.xpm
 
 WE ./textures/redbrick.xpm
 
-EA ./textures/wood.xpm 
+EA ./textures/wood.xpm
 
-F 50,50,50    
+F 50,50,50
 
-C 0,0,0        
+C 0,0,0
 
 
 

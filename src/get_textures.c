@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:40:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 17:59:20 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/11 12:08:40 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_get_img_path(void *mlx, t_image *img, char **s);
+int	ft_get_img_path(void *mlx, t_data *img, char **s);
 int	ft_get_color(int *color, char **s);
 
 int	ft_compare_one(t_game *game, char **str)

@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/10 09:37:06 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:04:44 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ void	ft_free_imgs_paths(t_game *game)
 
 void	ft_destroy_imgs(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->n.ptr);
-	mlx_destroy_image(game->mlx, game->s.ptr);
-	mlx_destroy_image(game->mlx, game->w.ptr);
-	mlx_destroy_image(game->mlx, game->e.ptr);
+	mlx_destroy_image(game->mlx, game->n.img);
+	mlx_destroy_image(game->mlx, game->s.img);
+	mlx_destroy_image(game->mlx, game->w.img);
+	mlx_destroy_image(game->mlx, game->e.img);
 	mlx_destroy_image(game->mlx, game->bg.img);
 }
 

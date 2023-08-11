@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/10 10:12:51 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/11 15:31:48 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ void	ft_draw_ver_line(t_game *game, int y_start, int y_end, int x, int color)
 	while (y_start <= y_end)
 	{
 		mlx_pixel_put(game->mlx, game->win.ptr, x, y_start, color);
+		y_start++;
+	}
+}
+
+void ft_recolor_line(t_data *data, int y_start, int y_end, int x, int color)
+{
+	char	*pixel;
+
+	while (y_start <= y_end)
+	{
+		pixel = data->addr + (y_start * data->line_length + x * (data->bits_per_pixel / 8));
+		*(int *)pixel = color;
 		y_start++;
 	}
 }
@@ -90,18 +102,18 @@ void	ft_view(t_game *game)
 			{
 				side_dist_x += delta_dist_x;
 				map_x += step_x;
-				side = 0;
+				side = 2 + step_x;
 			}
 			else
 			{
 				side_dist_y += delta_dist_y;
 				map_y += step_y;
-				side = 1;
+				side = 1 + step_y;
 			}
 			if (game->map[map_x][map_y] == '1')
 				hit = 1;
 		}
-		if(side == 0)
+		if (side % 2)
 			perp_wall_dist = (side_dist_x - delta_dist_x);
 		else
 			perp_wall_dist = (side_dist_y - delta_dist_y);
@@ -118,34 +130,98 @@ void	ft_view(t_game *game)
 		draw_end = line_height / 2 + WIN_HEIGHT / 2;
 		if(draw_end >= WIN_HEIGHT)
 			draw_end = WIN_HEIGHT - 1;
+		
+		/*
+		//calculate where the was hit exactly
+		double wall_x;
+		
+		if (!side)
+			wall_x = game->coord.pos_y + perp_wall_dist * ray_dir_y;
+		else
+			wall_x = game->coord.pos_x + perp_wall_dist * ray_dir_x;
+		wall_x -= floor(wall_x);
+		
+		int tex_x;
 
-		int col = BLUE;
-		if (side)
-			col /= 2;
+		tex_x = (int)(wall_x * (double)(TEX_WIDTH));
+		if(side == 0 && ray_dir_x > 0)
+			tex_x = TEX_WIDTH - tex_x - 1;
+		if(side == 1 && ray_dir_y < 0)
+			tex_x = TEX_WIDTH - tex_x - 1;
 
-		ft_draw_ver_line(game, draw_start, draw_end, x, col);
+		double	step;
+
+		step = 1.0 + TEX_HEIGHT / line_height;
+
+		double tex_pos;
+
+		tex_pos = (draw_start - WIN_HEIGHT / 2 + line_height / 2) * step;
+		
+		int				y;
+		int				tex_y;
+		unsigned int	color;
+	
+		y = draw_start;
+		while (y < draw_end)
+		{
+			tex_y = (int)tex_pos & (TEX_HEIGHT - 1);
+			tex_pos += step;
+			color = 
+			y++;
+		}
+		*/
+
+		int col;
+		
+		if (side == 0)
+			col = BLUE;
+		else if (side == 1)
+			col = RED;
+		else if (side == 2)
+			col = YELLOW;
+		else
+			col = GREEN;
+		
+		ft_recolor_line(&game->bg, draw_start, draw_end, x, col);
+		//ft_draw_ver_line(game, draw_start, draw_end, x, col);
 
 		x++;
 	}
 }
 
+void	ft_color_area(void *mlx, t_data *data, int start_y, int max_y, int color);
+
 int	ft_deal_key(int key, t_game *game)
 {
 	if (key == ESC)
 		ft_close(game);
-	if (key == KEY_W)
+	if (key == KEY_W || key == ARR_UP)
 	{
 		if (game->map[(int)(game->coord.pos_x + game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] != '1')
 			game->coord.pos_x += game->coord.dir_x * SPEED_MOVE;
 		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y + game->coord.dir_y * SPEED_MOVE)] != '1')
 			game->coord.pos_y += game->coord.dir_y * SPEED_MOVE;
 	}
-	else if (key == KEY_S)
+	else if (key == KEY_S || key == ARR_DOWN)
 	{
 		if (game->map[(int)(game->coord.pos_x - game->coord.dir_x * SPEED_MOVE)][(int)(game->coord.pos_y)] != '1')
 			game->coord.pos_x -= game->coord.dir_x * SPEED_MOVE;
 		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y - game->coord.dir_y * SPEED_MOVE)] != '1')
 			game->coord.pos_y -= game->coord.dir_y * SPEED_MOVE;
+	}
+	else if (key == KEY_A)
+	{
+		if (game->map[(int)(game->coord.pos_x - game->coord.dir_y * SPEED_MOVE)][(int)(game->coord.pos_y)] != '1')
+			game->coord.pos_x -= game->coord.dir_y * SPEED_MOVE;
+		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y + game->coord.dir_x * SPEED_MOVE)] != '1')
+			game->coord.pos_y += game->coord.dir_x * SPEED_MOVE;
+	}
+	else if (key == KEY_D)
+	{
+		if (game->map[(int)(game->coord.pos_x + game->coord.dir_y * SPEED_MOVE)][(int)(game->coord.pos_y)] != '1')
+			game->coord.pos_x += game->coord.dir_y * SPEED_MOVE;
+		if (game->map[(int)(game->coord.pos_x)][(int)(game->coord.pos_y - game->coord.dir_x * SPEED_MOVE)] != '1')
+			game->coord.pos_y -= game->coord.dir_x * SPEED_MOVE;
 	}
 	else if (key == ARR_RIGHT)
 	{
@@ -165,8 +241,10 @@ int	ft_deal_key(int key, t_game *game)
 		game->coord.plane_x = game->coord.plane_x * cos(SPEED_ROT) - game->coord.plane_y * sin(SPEED_ROT);
 		game->coord.plane_y = game->coord.old_plane_x * sin(SPEED_ROT) + game->coord.plane_y * cos(SPEED_ROT);
 	}
-	mlx_put_image_to_window(game->mlx, game->win.ptr, game->bg.img, 0, 0);
+	ft_color_area(game->mlx, &game->bg, 0, game->bg.height / 2, game->floor);
+	ft_color_area(game->mlx, &game->bg, game->bg.height / 2, game->bg.height, game->ceiling);
 	ft_view(game);
+	mlx_put_image_to_window(game->mlx, game->win.ptr, game->bg.img, 0, 0);
 	//ft_print_map(game);
 	return (0);
 }

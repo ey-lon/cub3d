@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/10 09:44:51 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:09:05 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,17 @@ void	ft_info_init(t_game *game)
 {
 	game->mlx = mlx_init();
 	game->map = NULL;
-	game->n.path = 0;
-	game->s.path = 0;
-	game->w.path = 0;
-	game->e.path = 0;
-	game->e.ptr = 0;
-	game->n.ptr = 0;
-	game->s.ptr = 0;
-	game->w.ptr = 0;
+	game->bg.path = NULL;
+	game->bg.height = WIN_HEIGHT;
+	game->bg.width = WIN_WIDTH;
+	game->n.path = NULL;
+	game->s.path = NULL;
+	game->w.path = NULL;
+	game->e.path = NULL;
+	game->e.img = NULL;
+	game->n.img = NULL;
+	game->s.img = NULL;
+	game->w.img = NULL;
 	game->floor = -1;
 	game->ceiling = -1;
 }

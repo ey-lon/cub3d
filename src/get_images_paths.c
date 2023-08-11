@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:15 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 15:27:33 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/11 11:05:27 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	ft_check_img_path(char *path)
 	return (0);
 }
 
-int	ft_get_img_path(void *mlx, t_image *img, char **s)
+int	ft_get_img_path(void *mlx, t_data *data, char **s)
 {
 	int		len;
 	char	*path;
 	char	*str;
 
 	str = *s;
-	if (img->ptr || !ft_isspace(str[2]))
+	if (data->img || !ft_isspace(str[2]))
 		return (ft_dprintf(2, "Error\nInvalid info\n") * 0 - 1);
 	str += 2;
 	while (ft_isspace(*str))
@@ -44,7 +44,7 @@ int	ft_get_img_path(void *mlx, t_image *img, char **s)
 	path = ft_substr(str, 0, len);
 	if (ft_check_img_path(path))
 		return (-1);
-	img->path = path;
+	data->path = path;
 	str += len;
 	*s = str;
 	return (1);

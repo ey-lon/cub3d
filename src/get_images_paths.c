@@ -48,7 +48,7 @@ int	ft_get_img_path(void *mlx, t_data *data, char **s)
 	char	*str;
 
 	str = *s;
-	if (ft_check_img__err(str, data->img))
+	if (ft_check_img_err(str, data->img))
 		return (-1);
 	str += 2;
 	while (ft_isspace(*str))

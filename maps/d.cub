@@ -1,12 +1,10 @@
-NO ./textures/purplestone.xpm
-
-SO ./textures/mossy.xpm
+NO ./textures/purplestone.xpm   SO ./textures/mossy.xpm
 
 WE ./textures/redbrick.xpm
+F 50,50,50
 
 EA ./textures/wood.xpm
 
-F 50,50,50
 
 C 0,0,0
 

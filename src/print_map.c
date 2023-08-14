@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:52 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/02 09:58:01 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/14 09:45:26 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	ft_put_single_square(t_game *game, int mx, int my)
 		x = 0;
 		while (x < TS)
 		{
-			mlx_pixel_put(game->mlx, game->win.ptr, x + (TS * mx), y + (TS * my), 0xEE1010);
+			mlx_pixel_put(game->mlx, game->win.ptr, \
+				x + (TS * mx), y + (TS * my), 0xEE1010);
 			x++;
 		}
 		y++;
@@ -32,9 +33,9 @@ void	ft_put_single_square(t_game *game, int mx, int my)
 
 void	ft_put_squares(t_game *game)
 {
-	int	x;
-	int	y;
-	char **mat;
+	int		x;
+	int		y;
+	char	**mat;
 
 	mat = game->map;
 	y = 0;
@@ -55,10 +56,11 @@ void	ft_put_squares(t_game *game)
 
 void	ft_put_ver_line(t_game *game, int mx)
 {
-	int	x;
-	int	y;
-	char **mat = game->map;
-	
+	int		x;
+	int		y;
+	char	**mat;
+
+	mat = game->map;
 	x = mx * TS;
 	y = 0;
 	while (y <= (game->mh * TS))
@@ -70,10 +72,11 @@ void	ft_put_ver_line(t_game *game, int mx)
 
 void	ft_put_hor_line(t_game *game, int my)
 {
-	int	x;
-	int	y;
-	char **mat = game->map;
-	
+	int		x;
+	int		y;
+	char	**mat;
+
+	mat = game->map;
 	y = my * TS;
 	x = 0;
 	while (x <= (game->mw * TS))
@@ -83,12 +86,12 @@ void	ft_put_hor_line(t_game *game, int my)
 	}
 }
 
- void	ft_put_lines(t_game *game)
+void	ft_put_lines(t_game *game)
 {
-	int	x;
-	int	y;
-	char **mat;
-	
+	int		x;
+	int		y;
+	char	**mat;
+
 	mat = game->map;
 	x = 0;
 	y = 0;

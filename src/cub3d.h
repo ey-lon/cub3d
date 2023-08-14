@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/11 14:44:39 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/14 10:17:37 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 
 # define SPACES "\t\n\v\f\r "
 # define WIN_NAME "cub3d"
-# define WIN_WIDTH 720
-# define WIN_HEIGHT 400
+# define WIN_WIDTH 1280
+# define WIN_HEIGHT 720
 # define SPEED_MOVE 0.1
 # define SPEED_ROT 0.05
 # define PI 3.1415926535
@@ -39,7 +39,7 @@
 # define TEX_HEIGHT 64
 # define TS 64
 
-typedef struct	s_data
+typedef struct s_data
 {
 	char	*path;
 	void	*img;
@@ -79,15 +79,15 @@ typedef struct s_cam
 	float	delta_dist_y;
 	double	side_dist_x;
 	double	side_dist_y;
-	int 	step_x;
+	int		step_x;
 	int		step_y;
 }	t_cam;
 
 typedef struct s_line
 {
-	int line_height;
-	int draw_start;
-	int draw_end;
+	int	line_height;
+	int	draw_start;
+	int	draw_end;
 }	t_line;
 
 typedef struct s_game

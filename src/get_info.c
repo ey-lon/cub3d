@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/09 15:46:50 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/14 10:37:09 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,16 @@ int	ft_check_leftovers(int fd)
 
 void	ft_print_info(t_game *game)
 {
+	write(1, "\n", 1);
 	printf("north   = %s\n", game->n.path);
 	printf("south   = %s\n", game->s.path);
 	printf("west    = %s\n", game->w.path);
 	printf("east    = %s\n", game->e.path);
 	printf("floor   = %d\n", game->floor);
-	printf("ceiling = %d\n\n", game->ceiling);
+	printf("ceiling = %d\n", game->ceiling);
+	write(1, "\n", 1);
 	ft_printmat(game->map);
+	write(1, "\n", 1);
 }
 
 int	ft_get_info(t_game *game, char *path)

@@ -6,22 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/11 15:31:48 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/14 14:57:53 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 int	ft_close(t_game *game);
-
-void	ft_draw_ver_line(t_game *game, int y_start, int y_end, int x, int color)
-{
-	while (y_start <= y_end)
-	{
-		mlx_pixel_put(game->mlx, game->win.ptr, x, y_start, color);
-		y_start++;
-	}
-}
 
 void ft_recolor_line(t_data *data, int y_start, int y_end, int x, int color)
 {
@@ -135,7 +126,7 @@ void	ft_view(t_game *game)
 		//calculate where the was hit exactly
 		double wall_x;
 		
-		if (!side)
+		if (side % 2)
 			wall_x = game->coord.pos_y + perp_wall_dist * ray_dir_y;
 		else
 			wall_x = game->coord.pos_x + perp_wall_dist * ray_dir_x;
@@ -183,13 +174,12 @@ void	ft_view(t_game *game)
 			col = GREEN;
 		
 		ft_recolor_line(&game->bg, draw_start, draw_end, x, col);
-		//ft_draw_ver_line(game, draw_start, draw_end, x, col);
 
 		x++;
 	}
 }
 
-void	ft_color_area(void *mlx, t_data *data, int start_y, int max_y, int color);
+void	ft_color_area(t_data *data, int start_y, int max_y, int color);
 
 int	ft_deal_key(int key, t_game *game)
 {
@@ -241,8 +231,8 @@ int	ft_deal_key(int key, t_game *game)
 		game->coord.plane_x = game->coord.plane_x * cos(SPEED_ROT) - game->coord.plane_y * sin(SPEED_ROT);
 		game->coord.plane_y = game->coord.old_plane_x * sin(SPEED_ROT) + game->coord.plane_y * cos(SPEED_ROT);
 	}
-	ft_color_area(game->mlx, &game->bg, 0, game->bg.height / 2, game->floor);
-	ft_color_area(game->mlx, &game->bg, game->bg.height / 2, game->bg.height, game->ceiling);
+	ft_color_area(&game->bg, 0, game->bg.height / 2, game->floor);
+	ft_color_area(&game->bg, game->bg.height / 2, game->bg.height, game->ceiling);
 	ft_view(game);
 	mlx_put_image_to_window(game->mlx, game->win.ptr, game->bg.img, 0, 0);
 	//ft_print_map(game);

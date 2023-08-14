@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/11 11:09:05 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/14 09:46:47 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_close(t_game *game)
 
 int	ft_game(t_game *game)
 {
-	game->win.ptr=ft_new_window(game, WIN_WIDTH, WIN_HEIGHT, WIN_NAME);
+	game->win.ptr = ft_new_window(game, WIN_WIDTH, WIN_HEIGHT, WIN_NAME);
 	ft_bg_img(game);
 	mlx_hook(game->win.ptr, 17, 0, ft_close, game);
 	mlx_hook(game->win.ptr, 2, 1L << 0, ft_deal_key, game);
@@ -61,7 +61,7 @@ void	ft_info_init(t_game *game)
 
 int	main(int ac, char **av)
 {
-	t_game game;
+	t_game	game;
 
 	if (ac != 2)
 		return (ft_dprintf(2, "Invalid number of arguments.\n") * 0 + 1);

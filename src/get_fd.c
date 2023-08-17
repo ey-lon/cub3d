@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:39:02 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/28 11:33:44 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/17 15:57:53 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	ft_get_fd(char *path, char *type)
 {
 	int	fd;
 
-	if (ft_type_check(path, type))
+	if (ft_type_check(path, type) || ft_check_ifdir(path))
 		fd = -1;
-	else if (!ft_check_ifdir(path))
+	else
 	{
 		fd = open(path, O_RDONLY);
 		if (fd < 0)

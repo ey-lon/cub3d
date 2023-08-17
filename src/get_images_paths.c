@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:15 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 10:36:38 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/16 15:19:58 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_get_img_path(void *mlx, t_data *data, char **s)
 	char	*str;
 
 	str = *s;
-	if (ft_check_img__err(str, data->img))
+	if (ft_check_img_err(str, data->img))
 		return (-1);
 	str += 2;
 	while (ft_isspace(*str))

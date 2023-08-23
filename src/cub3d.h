@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 10:17:37 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/21 15:56:43 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 # define SPEED_ROT 0.05
 # define PI 3.1415926535
 
+# define FOV 0.66
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
 # define TS 64
@@ -92,6 +93,7 @@ typedef struct s_line
 
 typedef struct s_game
 {
+	//t_data	textures[4];
 	t_data		n;
 	t_data		s;
 	t_data		w;
@@ -116,14 +118,27 @@ void	ft_get_imgs_xpm(t_game *game);
 void	ft_init_coord(t_game *game);
 void	ft_bg_img(t_game *game);
 
-//FREE---------------------------------------
+//-------------------------------------------
+//MOVE
+void	ft_key_move_up(t_game *game);
+void	ft_key_move_down(t_game *game);
+void	ft_key_move_left(t_game *game);
+void	ft_key_move_right(t_game *game);
+//ROTATE
+void	ft_key_rotate_left(t_game *game);
+void	ft_key_rotate_right(t_game *game);
+
+//-------------------------------------------
+//FREE
 void	ft_free_imgs_paths(t_game *game);
 void	ft_free_game(t_game *game);
 
-//UTILS--------------------------------------
+//-------------------------------------------
+//UTILS
 int		ft_max_len(char **mat);
 
-//PRINT_MAP----------------------------------
+//-------------------------------------------
+//PRINT_MAP
 void	ft_print_map(t_game *game);
 
 #endif

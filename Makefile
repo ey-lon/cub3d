@@ -51,6 +51,9 @@ SRC = main.c \
 	utils.c \
 	free_stuff_1.c \
 	deal_key.c \
+	key_move.c \
+	key_rot.c \
+	view.c \
 	bg_img.c
 
 #----------------------------------------------

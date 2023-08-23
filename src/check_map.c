@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:41:18 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/16 15:25:07 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/21 10:12:50 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_wall_check(char **mat)
 		x = 0;
 		while (mat[y][x])
 		{
-			if (mat[y][x] == '0')
+			if (ft_strchr("NSWE0", mat[y][x]))
 			{
 				if (!y || x >= ft_strlen(mat[y - 1]) || mat[y - 1][x] == ' ')
 					return (1);
@@ -52,7 +52,7 @@ int	ft_elem_check(char **mat)
 		x = 0;
 		while (mat[y][x])
 		{
-			if (!ft_strchr("NESW01 ", mat[y][x]))
+			if (!ft_strchr("NSWE01 ", mat[y][x]))
 				return (1);
 			x++;
 		}
@@ -74,7 +74,7 @@ int	ft_elem_count_check(char **mat)
 		x = 0;
 		while (mat[y][x])
 		{
-			if (ft_strchr("NESW", mat[y][x]))
+			if (ft_strchr("NSWE", mat[y][x]))
 				count++;
 			x++;
 		}

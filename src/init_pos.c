@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 10:40:17 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 09:43:08 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/21 09:48:51 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,22 @@ int	ft_get_dir(char c, t_coord *coord)
 	if (c == 'E')
 	{
 		ft_set_float(&coord->dir_x, &coord->dir_y, 0, 1);
-		ft_set_float(&coord->plane_x, &coord->plane_y, 0.66, 0);
+		ft_set_float(&coord->plane_x, &coord->plane_y, FOV, 0);
 	}
 	else if (c == 'W')
 	{
 		ft_set_float(&coord->dir_x, &coord->dir_y, 0, -1);
-		ft_set_float(&coord->plane_x, &coord->plane_y, -0.66, 0);
+		ft_set_float(&coord->plane_x, &coord->plane_y, -FOV, 0);
 	}
 	else if (c == 'N')
 	{
 		ft_set_float(&coord->dir_x, &coord->dir_y, -1, 0);
-		ft_set_float(&coord->plane_x, &coord->plane_y, 0, 0.66);
+		ft_set_float(&coord->plane_x, &coord->plane_y, 0, FOV);
 	}
 	else if (c == 'S')
 	{
 		ft_set_float(&coord->dir_x, &coord->dir_y, 1, 0);
-		ft_set_float(&coord->plane_x, &coord->plane_y, 0, -0.66);
+		ft_set_float(&coord->plane_x, &coord->plane_y, 0, -FOV);
 	}
 	else
 		return (-1);

@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 09:52:15 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:17:15 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 int		ft_close(t_game *game);
 
-void	ft_reset_bg(t_game *game);
-
-void	ft_view(t_game *game);
+void	ft_print_bg(t_game *game);
 
 int	ft_deal_key(int key, t_game *game)
 {
@@ -36,9 +34,8 @@ int	ft_deal_key(int key, t_game *game)
 		ft_key_rotate_right(game);
 	else
 		return (1);
-	ft_reset_bg(game);
-	ft_view(game);
-	mlx_put_image_to_window(game->mlx, game->win.ptr, game->bg.img, 0, 0);
-	//ft_print_map(game);
+	ft_print_bg(game);
 	return (0);
 }
+
+	//ft_print_map(game);

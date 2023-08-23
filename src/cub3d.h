@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 15:07:09 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:51:03 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,28 @@ typedef struct s_cam
 	float	delta_dist_y;
 	double	side_dist_x;
 	double	side_dist_y;
+	double	perp_wall_dist;
 	int		step_x;
 	int		step_y;
+	int		map_x;
+	int		map_y;
+	int		side;
 }	t_cam;
 
 typedef struct s_line
 {
-	int	line_height;
-	int	draw_start;
-	int	draw_end;
+	int		line_height;
+	int		draw_start;
+	int		draw_end;
+	double	wall_x;
+	int		tex_x;
+	int		tex_y;
+	double	tex_pos;
+	double	step;
 }	t_line;
 
 typedef struct s_game
 {
-	//t_data	textures[4];
 	t_data		n;
 	t_data		s;
 	t_data		w;

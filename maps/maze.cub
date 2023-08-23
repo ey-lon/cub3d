@@ -4,7 +4,7 @@ WE ./textures/bookshelf.xpm
 EA ./textures/cobblestone.xpm
 
 C 0,0,0
-F 0,255,0
+F 0,0,0
 
 111
 1S1

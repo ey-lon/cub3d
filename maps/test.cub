@@ -1,7 +1,7 @@
-NO ./pics/greystone.xpm
-SO ./pics/greystone.xpm
-WE ./pics/greystone.xpm
-EA ./pics/greystone.xpm
+NO ./textures/greystone.xpm
+SO ./textures/greystone.xpm
+WE ./textures/greystone.xpm
+EA ./textures/greystone.xpm
 
 C 255,255,255
 F 255,255,255

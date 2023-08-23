@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/21 15:56:43 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:07:09 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 
 # define SPACES "\t\n\v\f\r "
 # define WIN_NAME "cub3d"
-# define WIN_WIDTH 1280
-# define WIN_HEIGHT 720
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 # define SPEED_MOVE 0.1
 # define SPEED_ROT 0.05
 # define PI 3.1415926535

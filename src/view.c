@@ -6,12 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 11:03:39 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 11:02:09 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/23 15:03:15 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/* 
 void ft_recolor_line(t_data *data, int y_start, int y_end, int x, int color)
 {
 	char	*pixel;
@@ -23,6 +24,7 @@ void ft_recolor_line(t_data *data, int y_start, int y_end, int x, int color)
 		y_start++;
 	}
 }
+ */
 
 void	ft_recolor_pixel(t_data *data, int x, int y, int color);
 
@@ -103,7 +105,7 @@ void	ft_view(t_game *game)
 			}
 			if (map_x >= game->mh || map_y >= game->mw || map_x < 0 || map_y < 0)
 				break ;
-			if (game->map[map_x][map_y] == '1')
+			else if (game->map[map_x][map_y] == '1')
 				hit = 1;
 		}
 		if (!(map_x >= game->mh || map_y >= game->mw || map_x < 0 || map_y < 0))
@@ -133,7 +135,7 @@ void	ft_view(t_game *game)
 				wall_x = game->coord.pos_y + perp_wall_dist * ray_dir_y;
 			else
 				wall_x = game->coord.pos_x + perp_wall_dist * ray_dir_x;
-			wall_x -= floor(wall_x);
+			wall_x -= (int)(wall_x);
 			
 			int tex_x;
 
@@ -144,8 +146,8 @@ void	ft_view(t_game *game)
 				tex_x = TEX_WIDTH - tex_x - 1;
 
 			double	step;
-
-			step = 1.0 + TEX_HEIGHT / line_height;
+			
+			step = (double)TEX_HEIGHT / line_height;
 
 			double tex_pos;
 
@@ -160,7 +162,6 @@ void	ft_view(t_game *game)
 			while (y < draw_end)
 			{
 				tex_y = (int)tex_pos % TEX_HEIGHT;
-				tex_pos += step;
 				if (side == 0)
 					pixel = game->n.addr + ((tex_y * game->n.line_length) + (tex_x * (game->n.bits_per_pixel / 8)));
 				else if (side == 1)
@@ -171,6 +172,7 @@ void	ft_view(t_game *game)
 					pixel = game->e.addr + ((tex_y * game->e.line_length) + (tex_x * (game->e.bits_per_pixel / 8)));
 				color = *(int *)pixel;
 				ft_recolor_pixel(&game->bg, x, y, color);
+				tex_pos += step;
 				y++;
 			}
 			

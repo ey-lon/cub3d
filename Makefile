@@ -53,7 +53,8 @@ SRC = main.c \
 	deal_key.c \
 	key_move.c \
 	key_rot.c \
-	view.c \
+	raycasting_1.c \
+	raycasting_2.c \
 	bg_img.c
 
 #----------------------------------------------

@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 09:46:47 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 14:53:06 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_close(t_game *game)
 int	ft_game(t_game *game)
 {
 	game->win.ptr = ft_new_window(game, WIN_WIDTH, WIN_HEIGHT, WIN_NAME);
-	ft_bg_img(game);
+	ft_new_bg(game);
 	mlx_hook(game->win.ptr, 17, 0, ft_close, game);
 	mlx_hook(game->win.ptr, 2, 1L << 0, ft_deal_key, game);
 	mlx_loop(game->mlx);

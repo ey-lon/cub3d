@@ -6,15 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 11:42:21 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 14:52:31 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 int		ft_close(t_game *game);
-
-void	ft_print_bg(t_game *game);
 
 int	ft_deal_key(int key, t_game *game)
 {
@@ -38,7 +36,7 @@ int	ft_deal_key(int key, t_game *game)
 	else
 		check = 0;
 	if (check)
-		ft_print_bg(game);
+		ft_new_bg(game);
 	return (0);
 }
 

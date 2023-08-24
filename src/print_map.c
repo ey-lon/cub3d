@@ -6,10 +6,11 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:52 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 10:44:30 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:11:36 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "cub3d.h"
 
 void	ft_put_single_square(t_game *game, int mx, int my)
@@ -112,3 +113,4 @@ void	ft_print_map(t_game *game)
 	ft_put_squares(game);
 	ft_put_lines(game);
 }
+*/

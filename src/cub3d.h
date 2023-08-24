@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 12:17:35 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:05:00 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 
 # define SPACES "\t\n\v\f\r "
 # define WIN_NAME "cub3d"
-# define WIN_WIDTH 1080
-# define WIN_HEIGHT 720
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 # define SPEED_MOVE 0.1
 # define SPEED_ROT 0.05
 # define PI 3.1415926535
@@ -117,6 +117,8 @@ typedef struct s_game
 	t_coord		coord;
 }	t_game;
 
+//-------------------------------------------
+//INIT
 int		ft_get_info(t_game *game, char *path);
 int		ft_get_fd(char *path, char *type);
 int		ft_get_textures(t_game *game, int fd);
@@ -124,7 +126,11 @@ int		ft_get_map(t_game *game, int fd);
 int		ft_check_map(char **mat);
 void	ft_get_imgs_data(t_game *game);
 void	ft_init_coord(t_game *game);
-void	ft_bg_img(t_game *game);
+
+//-------------------------------------------
+//IMGS RECOLORING
+void	ft_recolor_pixel(t_data *data, int x, int y, int color);
+void	ft_new_bg(t_game *game);
 
 //-------------------------------------------
 //MOVE
@@ -135,6 +141,11 @@ int		ft_key_move_right(t_game *game);
 //ROTATE
 void	ft_key_rotate_left(t_game *game);
 void	ft_key_rotate_right(t_game *game);
+
+//-------------------------------------------
+//RAYCASTING
+void	ft_raycasting(t_game *game);
+void	ft_raycasting_2(t_game *game, t_cam *cam, int x);
 
 //-------------------------------------------
 //FREE

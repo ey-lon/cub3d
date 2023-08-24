@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 11:10:37 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 12:17:35 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 
 # define SPACES "\t\n\v\f\r "
 # define WIN_NAME "cub3d"
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 720
 # define SPEED_MOVE 0.1
 # define SPEED_ROT 0.05
 # define PI 3.1415926535
@@ -144,6 +144,7 @@ void	ft_free_game(t_game *game);
 //-------------------------------------------
 //UTILS
 int		ft_max_len(char **mat);
+double	ft_fabs(double n);
 
 //-------------------------------------------
 //PRINT_MAP

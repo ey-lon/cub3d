@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 11:02:01 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 10:13:58 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 12:19:25 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,11 @@ int	ft_max_len(char **mat)
 		y++;
 	}
 	return (len);
+}
+
+double	ft_fabs(double n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
 }

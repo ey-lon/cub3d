@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 11:03:39 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 11:08:52 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 12:17:51 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	ft_v1(t_game *game, t_cam *cam, int x)
 	cam->map_x = game->coord.pos_x;
 	cam->map_y = game->coord.pos_y;
 	if (cam->ray_dir_x)
-		cam->delta_dist_x = fabs(1 / cam->ray_dir_x);
+		cam->delta_dist_x = ft_fabs(1 / cam->ray_dir_x);
 	else
 		cam->delta_dist_x = (float)INT_MAX;
 	if (cam->ray_dir_y)
-		cam->delta_dist_y = fabs(1 / cam->ray_dir_y);
+		cam->delta_dist_y = ft_fabs(1 / cam->ray_dir_y);
 	else
 		cam->delta_dist_y = (float)INT_MAX;
 }

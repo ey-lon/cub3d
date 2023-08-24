@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 10:40:17 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/21 09:48:51 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:44:30 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ int	ft_get_pos_dir(t_coord *coord, char **mat)
 void	ft_init_coord(t_game *game)
 {
 	ft_get_pos_dir(&game->coord, game->map);
-	game->mh = ft_matlen(game->map);
-	game->mw = ft_max_len(game->map);
+	game->map_height = ft_matlen(game->map);
+	game->map_width = ft_max_len(game->map);
 }

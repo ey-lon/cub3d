@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 11:03:39 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 15:51:27 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 11:08:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	ft_v2(t_game *game, t_cam *cam)
 	}
 }
 
-void	ft_v3(t_game *game, t_cam *cam)
+int	ft_v3(t_game *game, t_cam *cam)
 {
 	int	hit;
 
@@ -78,12 +78,13 @@ void	ft_v3(t_game *game, t_cam *cam)
 			cam->map_y += cam->step_y;
 			cam->side = 2 + cam->step_y;
 		}
-		if (cam->map_x >= game->mh || cam->map_y >= game->mw \
+		if (cam->map_x >= game->map_height || cam->map_y >= game->map_width \
 			|| cam->map_x < 0 || cam->map_y < 0)
 			break ;
 		else if (game->map[cam->map_x][cam->map_y] == '1')
 			hit = 1;
 	}
+	return (hit);
 }
 
 void	ft_v4(t_game *game, t_cam *cam, t_line *line)
@@ -153,9 +154,7 @@ void	ft_view(t_game *game)
 	{
 		ft_v1(game, &cam, x);
 		ft_v2(game, &cam);
-		ft_v3(game, &cam);
-		if (!(cam.map_x >= game->mh || cam.map_y >= game->mw \
-			|| cam.map_x < 0 || cam.map_y < 0))
+		if (ft_v3(game, &cam))
 		{
 			ft_v4(game, &cam, &line);
 			ft_v5(game, &cam, &line);
@@ -240,12 +239,12 @@ void	ft_view(t_game *game)
 				map_y += step_y;
 				side = 2 + step_y;
 			}
-			if (map_x >= game->mh || map_y >= game->mw || map_x < 0 || map_y < 0)
+			if (map_x >= game->map_height || map_y >= game->map_width || map_x < 0 || map_y < 0)
 				break ;
 			else if (game->map[map_x][map_y] == '1')
 				hit = 1;
 		}
-		if (!(map_x >= game->mh || map_y >= game->mw || map_x < 0 || map_y < 0))
+		if (!(map_x >= game->map_height || map_y >= game->map_width || map_x < 0 || map_y < 0))
 		{
 			if (side % 2 == 0)
 				perp_wall_dist = (side_dist_x - delta_dist_x);

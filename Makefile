@@ -42,7 +42,7 @@ SRC = main.c \
 	get_info.c \
 	get_textures.c \
 	get_images_paths.c \
-	get_images_xpm.c \
+	get_images_data.c \
 	get_colors.c \
 	get_map.c \
 	check_map.c \

@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:46:27 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 16:09:40 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:30:04 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_color_area(t_data *data, int start_y, int max_y, int color)
 {
 	int		x;
 	int		y;
-	char	*pixel;
 
 	y = start_y;
 	while (y < max_y)
@@ -35,9 +34,7 @@ void	ft_color_area(t_data *data, int start_y, int max_y, int color)
 		x = 0;
 		while (x < data->width)
 		{
-			pixel = data->addr + \
-				(y * data->line_length + x * (data->bits_per_pixel / 8));
-			*(int *)pixel = color;
+			ft_recolor_pixel(data, x, y, color);
 			x++;
 		}
 		y++;

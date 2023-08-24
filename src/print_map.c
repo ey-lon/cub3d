@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:52 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 09:45:26 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:44:30 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_put_ver_line(t_game *game, int mx)
 	mat = game->map;
 	x = mx * TS;
 	y = 0;
-	while (y <= (game->mh * TS))
+	while (y <= (game->map_height * TS))
 	{
 		mlx_pixel_put(game->mlx, game->win.ptr, x, y, 0xFFFFFF);
 		y++;
@@ -79,7 +79,7 @@ void	ft_put_hor_line(t_game *game, int my)
 	mat = game->map;
 	y = my * TS;
 	x = 0;
-	while (x <= (game->mw * TS))
+	while (x <= (game->map_width * TS))
 	{
 		mlx_pixel_put(game->mlx, game->win.ptr, x, y, 0xFFFFFF);
 		x++;
@@ -95,12 +95,12 @@ void	ft_put_lines(t_game *game)
 	mat = game->map;
 	x = 0;
 	y = 0;
-	while (x <= game->mw)
+	while (x <= game->map_width)
 	{
 		ft_put_ver_line(game, x);
 		x++;
 	}
-	while (y <= game->mh)
+	while (y <= game->map_height)
 	{
 		ft_put_hor_line(game, y);
 		y++;

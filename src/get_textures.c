@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:40:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/11 12:08:40 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:42:36 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,3 +73,5 @@ int	ft_get_textures(t_game *game, int fd)
 		return (1);
 	return (0);
 }
+
+//6 are the info to get (NO, SO, WE, EA, FLOOR, CEILING)

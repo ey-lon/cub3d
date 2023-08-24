@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_images_xpm.c                                   :+:      :+:    :+:   */
+/*   get_images_data.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:26:09 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 13:20:49 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:31:42 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_get_img_addr(t_data *data)
 		&data->bits_per_pixel, &data->line_length, &data->endian);
 }
 
-void	ft_get_imgs_xpm(t_game *game)
+void	ft_get_imgs_data(t_game *game)
 {
 	game->n.img = ft_get_img_xpm(game->mlx, &(game->n));
 	game->s.img = ft_get_img_xpm(game->mlx, &(game->s));

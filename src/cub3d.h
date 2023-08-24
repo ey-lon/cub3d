@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/23 15:51:03 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 11:10:37 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,8 @@ typedef struct s_game
 	char		**map;
 	void		*mlx;
 	t_window	win;
-	int			mh;
-	int			mw;
+	int			map_height;
+	int			map_width;
 	t_coord		coord;
 }	t_game;
 
@@ -122,16 +122,16 @@ int		ft_get_fd(char *path, char *type);
 int		ft_get_textures(t_game *game, int fd);
 int		ft_get_map(t_game *game, int fd);
 int		ft_check_map(char **mat);
-void	ft_get_imgs_xpm(t_game *game);
+void	ft_get_imgs_data(t_game *game);
 void	ft_init_coord(t_game *game);
 void	ft_bg_img(t_game *game);
 
 //-------------------------------------------
 //MOVE
-void	ft_key_move_up(t_game *game);
-void	ft_key_move_down(t_game *game);
-void	ft_key_move_left(t_game *game);
-void	ft_key_move_right(t_game *game);
+int		ft_key_move_up(t_game *game);
+int		ft_key_move_down(t_game *game);
+int		ft_key_move_left(t_game *game);
+int		ft_key_move_right(t_game *game);
 //ROTATE
 void	ft_key_rotate_left(t_game *game);
 void	ft_key_rotate_right(t_game *game);

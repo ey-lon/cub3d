@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 10:37:09 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:32:19 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	ft_get_info(t_game *game, char *path)
 	}
 	else
 	{
-		ft_get_imgs_xpm(game);
+		ft_get_imgs_data(game);
 		ft_print_info(game);
 	}
 	close (fd);

@@ -6,11 +6,23 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 15:46:27 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 14:54:09 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:21:46 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+//-----------------------------------------------------------
+//COLORS
+
+int	ft_get_pixel_color(t_data *data, int x, int y)
+{
+	char	*pixel;
+
+	pixel = data->addr + ((y * data->line_length) + \
+				(x * (data->bits_per_pixel / 8)));
+	return (*(int *)pixel);
+}
 
 void	ft_recolor_pixel(t_data *data, int x, int y, int color)
 {
@@ -38,6 +50,9 @@ void	ft_color_area(t_data *data, int start_y, int max_y, int color)
 		y++;
 	}
 }
+
+//-----------------------------------------------------------
+//BACKGROUND
 
 void	ft_reset_bg(t_game *game)
 {

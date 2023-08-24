@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 15:05:00 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:18:47 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,8 @@ void	ft_get_imgs_data(t_game *game);
 void	ft_init_coord(t_game *game);
 
 //-------------------------------------------
-//IMGS RECOLORING
+//COLORS
+int		ft_get_pixel_color(t_data *data, int x, int y);
 void	ft_recolor_pixel(t_data *data, int x, int y, int color);
 void	ft_new_bg(t_game *game);
 

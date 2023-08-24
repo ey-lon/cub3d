@@ -49,7 +49,7 @@ SRC = main.c \
 	init_pos.c \
 	print_map.c \
 	utils.c \
-	free_stuff_1.c \
+	free_stuff.c \
 	deal_key.c \
 	key_move.c \
 	key_rot.c \

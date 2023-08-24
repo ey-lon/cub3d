@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:57:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 15:08:16 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:19:03 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,20 @@ void	ft_v6(t_game *game, t_cam *cam, t_line *line, int x)
 {
 	int		y;
 	int		color;
-	char	*pixel;
 
 	y = line->draw_start;
 	while (y < line->draw_end)
 	{
+		color = 0;
 		line->tex_y = (int)(line->tex_pos) % TEX_HEIGHT;
 		if (cam->side == 0)
-			pixel = game->n.addr + ((line->tex_y * game->n.line_length) + \
-				(line->tex_x * (game->n.bits_per_pixel / 8)));
+			color = ft_get_pixel_color(&game->n, line->tex_x, line->tex_y);
 		else if (cam->side == 1)
-			pixel = game->w.addr + ((line->tex_y * game->w.line_length) + \
-				(line->tex_x * (game->w.bits_per_pixel / 8)));
+			color = ft_get_pixel_color(&game->w, line->tex_x, line->tex_y);
 		else if (cam->side == 2)
-			pixel = game->s.addr + ((line->tex_y * game->s.line_length) + \
-				(line->tex_x * (game->s.bits_per_pixel / 8)));
+			color = ft_get_pixel_color(&game->s, line->tex_x, line->tex_y);
 		else if (cam->side == 3)
-			pixel = game->e.addr + ((line->tex_y * game->e.line_length) + \
-				(line->tex_x * (game->e.bits_per_pixel / 8)));
-		color = *(int *)pixel;
+			color = ft_get_pixel_color(&game->e, line->tex_x, line->tex_y);
 		ft_recolor_pixel(&game->bg, x, y, color);
 		line->tex_pos += line->step;
 		y++;

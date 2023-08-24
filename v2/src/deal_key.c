@@ -52,6 +52,8 @@ int	ft_release_key(int key, t_game *game)
 
 void	ft_loop(t_game *game)
 {
+	if (game->keys_pressed == 0)
+		return ;
 	if (game->keys_pressed & UP_P)
 		ft_key_move_up(game);
 	if (game->keys_pressed & DOWN_P)

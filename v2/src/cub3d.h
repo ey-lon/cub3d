@@ -142,14 +142,16 @@ void	ft_recolor_pixel(t_data *data, int x, int y, int color);
 void	ft_new_bg(t_game *game);
 
 //LOOP
+int		ft_deal_key(int key, t_game *game);
+int		ft_release_key(int key, t_game *game);
 void	ft_loop(t_game *game);
 
 //-------------------------------------------
 //MOVE
-int		ft_key_move_up(t_game *game);
-int		ft_key_move_down(t_game *game);
-int		ft_key_move_left(t_game *game);
-int		ft_key_move_right(t_game *game);
+void	ft_key_move_up(t_game *game);
+void	ft_key_move_down(t_game *game);
+void	ft_key_move_left(t_game *game);
+void	ft_key_move_right(t_game *game);
 //ROTATE
 void	ft_key_rotate_left(t_game *game);
 void	ft_key_rotate_right(t_game *game);

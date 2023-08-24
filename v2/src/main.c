@@ -12,10 +12,6 @@
 
 #include "cub3d.h"
 
-int	ft_deal_key(int key, t_game *game);
-
-int	ft_release_key(int key, t_game *game);
-
 void	*ft_new_window(t_game *game, int width, int height, char *name)
 {
 	void	*win;

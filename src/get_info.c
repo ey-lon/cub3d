@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 10:32:19 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:32:10 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	ft_print_info(t_game *game)
 int	ft_get_info(t_game *game, char *path)
 {
 	int		fd;
-	char	**map;
 	int		check;
 
 	fd = ft_get_fd(path, ".cub");

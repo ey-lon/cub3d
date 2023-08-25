@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:41:18 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 11:30:05 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:36:19 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@
 
 int	ft_wall_check(char **mat, char *str)
 {
-	int	x;
-	int	y;
+	size_t	x;
+	int		y;
 
 	y = 0;
 	while (mat[y])

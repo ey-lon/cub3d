@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:57:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:18:43 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:36:30 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_v4(t_game *game, t_cam *cam, t_line *line)
+void	ft_v4(t_cam *cam, t_line *line)
 {
 	if (cam->side % 2 == 0)
 		cam->perp_wall_dist = (cam->side_dist_x - cam->delta_dist_x);
@@ -51,8 +51,6 @@ void	ft_v6(t_game *game, t_cam *cam, t_line *line, int x)
 	int		y;
 	int		color;
 
-	// if (x == WIN_WIDTH - 1)
-	// 	printf ("%d %d %d %f\n", line->draw_start, line->draw_end, line->line_height, cam->perp_wall_dist);
 	y = line->draw_start;
 	while (y < line->draw_end)
 	{
@@ -76,7 +74,7 @@ void	ft_raycasting_2(t_game *game, t_cam *cam, int x)
 {
 	t_line	line;
 
-	ft_v4(game, cam, &line);
+	ft_v4(cam, &line);
 	ft_v5(game, cam, &line);
 	ft_v6(game, cam, &line, x);
 }

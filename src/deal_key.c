@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:18:54 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:36:47 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int		ft_close(t_game *game);
 	game->coord.plane_x = 0;
 	game->coord.plane_y = FOV;
 } */
+	//else if (key == ARR_UP)
+	//	ft_reset_angle(game);
 
 int	ft_deal_key(int key, t_game *game)
 {
@@ -38,8 +40,6 @@ int	ft_deal_key(int key, t_game *game)
 		game->keys_pressed |= ROT_L_P;
 	else if (key == ARR_RIGHT)
 		game->keys_pressed |= ROT_R_P;
-	//else if (key == ARR_UP)
-	//	ft_reset_angle(game);
 	return (0);
 }
 

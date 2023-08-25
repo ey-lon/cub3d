@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:40:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 10:42:36 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:33:02 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_get_img_path(void *mlx, t_data *img, char **s);
+int	ft_get_img_path(t_data *img, char **s);
 int	ft_get_color(int *color, char **s);
 
 int	ft_compare_one(t_game *game, char **str)
@@ -21,13 +21,13 @@ int	ft_compare_one(t_game *game, char **str)
 
 	check = 0;
 	if (!ft_strncmp(*str, "NO", 2))
-		check = ft_get_img_path(game->mlx, &game->n, str);
+		check = ft_get_img_path(&game->n, str);
 	else if (!ft_strncmp(*str, "SO", 2))
-		check = ft_get_img_path(game->mlx, &game->s, str);
+		check = ft_get_img_path(&game->s, str);
 	else if (!ft_strncmp(*str, "WE", 2))
-		check = ft_get_img_path(game->mlx, &game->w, str);
+		check = ft_get_img_path(&game->w, str);
 	else if (!ft_strncmp(*str, "EA", 2))
-		check = ft_get_img_path(game->mlx, &game->e, str);
+		check = ft_get_img_path(&game->e, str);
 	else if (!ft_strncmp(*str, "F", 1))
 		check = ft_get_color(&game->floor, str);
 	else if (!ft_strncmp(*str, "C", 1))

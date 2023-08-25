@@ -18,7 +18,7 @@ RM = rm -rf
 
 NAME = cub3D
 
-CC_FLAGS = -no-pie -Wall -Werror -Wextra -g -03
+CC_FLAGS = -Wall -Werror -Wextra -g
 
 MLX_FLAGS = -lm -lX11 -lXext
 
@@ -71,7 +71,7 @@ OBJ := $(addprefix $(OBJ_F),$(OBJ))
 
 $(OBJ_F)%.o : $(SRC_F)%.c
 	mkdir -p $(OBJ_F)
-	$(CC) -c $< -o $@
+	$(CC) $(CC_FLAGS) -c $< -o $@
 
 #----------------------------------------------
 #RULES
@@ -79,7 +79,7 @@ $(OBJ_F)%.o : $(SRC_F)%.c
 all: $(NAME)
 
 $(NAME): libcomp $(OBJ)
-	$(CC) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
+	$(CC) $(CC_FLAGS) $(OBJ) $(LIBFT) $(MLX) $(MLX_FLAGS) -O3 -o $(NAME)
 	echo "$(CYAN)[make - $(NAME)]$(NOCOL)"
 
 libcomp:

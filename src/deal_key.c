@@ -6,13 +6,21 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 10:02:18 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:18:54 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 int		ft_close(t_game *game);
+
+/* void	ft_reset_angle(t_game *game)
+{
+	game->coord.dir_x = -1;
+	game->coord.dir_y = 0;
+	game->coord.plane_x = 0;
+	game->coord.plane_y = FOV;
+} */
 
 int	ft_deal_key(int key, t_game *game)
 {
@@ -30,6 +38,8 @@ int	ft_deal_key(int key, t_game *game)
 		game->keys_pressed |= ROT_L_P;
 	else if (key == ARR_RIGHT)
 		game->keys_pressed |= ROT_R_P;
+	//else if (key == ARR_UP)
+	//	ft_reset_angle(game);
 	return (0);
 }
 

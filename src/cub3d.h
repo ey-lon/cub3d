@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 09:56:57 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:21:40 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@
 # define WIN_NAME "cub3d"
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
-# define SPEED_MOVE 0.1
+# define SPEED_MOVE 0.15
 # define SPEED_ROT 0.05
+# define WALL_OFFSET 0.1
 # define PI 3.1415926535
 
 # define FOV 0.66
@@ -68,23 +69,23 @@ typedef struct s_window
 
 typedef struct s_coord
 {
-	float		pos_x;
-	float		pos_y;
-	float		dir_x;
-	float		dir_y;
-	float		plane_x;
-	float		plane_y;
-	float		old_dir_x;
-	float		old_plane_x;
+	double		pos_x;
+	double		pos_y;
+	double		dir_x;
+	double		dir_y;
+	double		plane_x;
+	double		plane_y;
+	double		old_dir_x;
+	double		old_plane_x;
 }	t_coord;
 
 typedef struct s_cam
 {
-	float	camera_x;
-	float	ray_dir_x;
-	float	ray_dir_y;
-	float	delta_dist_x;
-	float	delta_dist_y;
+	double	camera_x;
+	double	ray_dir_x;
+	double	ray_dir_y;
+	double	delta_dist_x;
+	double	delta_dist_y;
 	double	side_dist_x;
 	double	side_dist_y;
 	double	perp_wall_dist;
@@ -109,20 +110,20 @@ typedef struct s_line
 
 typedef struct s_game
 {
+	void		*mlx;
+	t_window	win;
+	char		keys_pressed;
+	t_coord		coord;
 	t_data		n;
 	t_data		s;
 	t_data		w;
 	t_data		e;
 	t_data		bg;
-	char		keys_pressed;
 	int			ceiling;
 	int			floor;
 	char		**map;
-	void		*mlx;
-	t_window	win;
 	int			map_height;
 	int			map_width;
-	t_coord		coord;
 }	t_game;
 
 //-------------------------------------------

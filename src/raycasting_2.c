@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:57:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 15:19:03 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/25 16:18:43 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ void	ft_v4(t_game *game, t_cam *cam, t_line *line)
 		cam->perp_wall_dist = (cam->side_dist_x - cam->delta_dist_x);
 	else
 		cam->perp_wall_dist = (cam->side_dist_y - cam->delta_dist_y);
-	line->line_height = (int)(WIN_HEIGHT / cam->perp_wall_dist);
+	if (cam->perp_wall_dist < 0.000001)
+		cam->perp_wall_dist = 0.000001;
+	line->line_height = (int)((double)WIN_HEIGHT / cam->perp_wall_dist);
 	line->draw_start = -(line->line_height) / 2 + WIN_HEIGHT / 2;
 	if (line->draw_start < 0)
 		line->draw_start = 0;
@@ -49,6 +51,8 @@ void	ft_v6(t_game *game, t_cam *cam, t_line *line, int x)
 	int		y;
 	int		color;
 
+	// if (x == WIN_WIDTH - 1)
+	// 	printf ("%d %d %d %f\n", line->draw_start, line->draw_end, line->line_height, cam->perp_wall_dist);
 	y = line->draw_start;
 	while (y < line->draw_end)
 	{

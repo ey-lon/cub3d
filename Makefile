@@ -18,7 +18,7 @@ RM = rm -rf
 
 NAME = cub3D
 
-CC_FLAGS = -no-pie -Wall -Werror -Wextra -g
+CC_FLAGS = -no-pie -Wall -Werror -Wextra -g -03
 
 MLX_FLAGS = -lm -lX11 -lXext
 

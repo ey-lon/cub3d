@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:20:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/01 11:27:49 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:36:18 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define KEYCODES_H
 
 # define ESC 65307
+# define KEY_TAB	65289
 
 # define KEY_W 119
 # define KEY_A 97

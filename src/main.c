@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 17:07:24 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:35:54 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	ft_info_init(t_game *game)
 	game->floor = -1;
 	game->ceiling = -1;
 	game->keys_pressed = 0;
+	game->minimap = 0;
+	game->event = 1;
 }
 
 int	main(int ac, char **av)

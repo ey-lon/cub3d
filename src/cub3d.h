@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:21:40 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:37:52 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ typedef struct s_game
 	void		*mlx;
 	t_window	win;
 	char		keys_pressed;
+	char		minimap;
+	char		event;
 	t_coord		coord;
 	t_data		n;
 	t_data		s;
@@ -140,7 +142,12 @@ void	ft_init_coord(t_game *game);
 //COLORS
 int		ft_get_pixel_color(t_data *data, int x, int y);
 void	ft_recolor_pixel(t_data *data, int x, int y, int color);
+void	ft_color_area(t_data *data, int start_y, int max_y, int color);
+
+//-------------------------------------------
+//BACKGROUND
 void	ft_new_bg(t_game *game);
+void	ft_minimap(t_game *game);
 
 //LOOP
 int		ft_deal_key(int key, t_game *game);

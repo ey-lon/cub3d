@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 10:40:17 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:25:35 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/28 17:39:00 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ int	ft_get_pos_dir(t_coord *coord, char **mat)
 				coord->pos_x = x + 0.5;
 				coord->pos_y = y + 0.5;
 				ft_get_dir(mat[x][y], coord);
+				mat[x][y] = '0';
 				return (0);
 			}
 			y += 1;

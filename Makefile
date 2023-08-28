@@ -51,11 +51,13 @@ SRC = main.c \
 	utils.c \
 	free_stuff.c \
 	deal_key.c \
+	deal_colors.c \
 	key_move.c \
 	key_rot.c \
 	raycasting_1.c \
 	raycasting_2.c \
-	bg_img.c
+	bg_img.c \
+	minimap.c
 
 #----------------------------------------------
 #PREFIXES

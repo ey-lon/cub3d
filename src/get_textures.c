@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:40:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:33:02 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:42:03 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	ft_compare_one(t_game *game, char **str)
 	else if (!ft_strncmp(*str, "C", 1))
 		check = ft_get_color(&game->ceiling, str);
 	else if (**str)
-		check = -1;
+		check = ft_dprintf(2, "Error\nInvalid info.\n") * 0 - 1;
 	return (check);
 }
 
@@ -69,8 +69,10 @@ int	ft_get_textures(t_game *game, int fd)
 		check = ft_get_img_col(game, line, check);
 		free(line);
 	}
-	if (check != 6)
+	if (check == -1)
 		return (1);
+	else if (check != 6) 
+		return (ft_dprintf(2, "Error\nNot enough info.\n") * 0 + 1);
 	return (0);
 }
 

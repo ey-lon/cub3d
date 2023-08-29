@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 08:58:18 by abettini          #+#    #+#             */
-/*   Updated: 2023/04/14 16:27:58 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:41:44 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,19 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	*buf[FOPEN_MAX];
+	int			i;
 
+	if (fd == -2)
+	{
+		i = 0;
+		while (i < FOPEN_MAX)
+		{
+			if (buf[i])
+				free(buf[i]);
+			i++;
+		}
+		return (NULL);
+	}
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
 	buf[fd] = ft_getdata(buf[fd], fd);

@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:32:10 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:37:32 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,37 @@ void	ft_print_info(t_game *game)
 	write(1, "\n", 1);
 }
 
+void	ft_err_management(t_game *game)
+{
+	get_next_line(-2);
+	ft_free_imgs_paths(game);
+	ft_freemat(game->map);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+}
+
 int	ft_get_info(t_game *game, char *path)
 {
 	int		fd;
 	int		check;
 
+	check = 0;
 	fd = ft_get_fd(path, ".cub");
 	if (fd < 0)
-		return (1);
-	check = ft_get_textures(game, fd);
+		check = 1;
+	if (!check)
+		check = ft_get_textures(game, fd);
 	if (!check)
 		check = ft_get_map(game, fd);
 	if (!check)
 		check = ft_check_leftovers(fd);
 	if (check)
-	{
-		ft_free_imgs_paths(game);
-		ft_freemat(game->map);
-	}
+		ft_err_management(game);
 	else
-	{
 		ft_get_imgs_data(game);
-		ft_print_info(game);
-	}
-	close (fd);
+	if (fd > 0)
+		close (fd);
 	return (check);
 }
+
+//ft_print_info(game);

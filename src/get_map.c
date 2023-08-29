@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:29:04 by abettini          #+#    #+#             */
-/*   Updated: 2023/07/27 14:42:41 by abettini         ###   ########.fr       */
+/*   Updated: 2023/08/29 14:40:58 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,8 @@ char	**ft_get_map_fd(int fd)
 			}
 			rawmat = ft_freejoin(rawmat, line);
 		}
-		mat = ft_split(rawmat, '\n');
+		if (rawmat)
+			mat = ft_split(rawmat, '\n');
 		free(rawmat);
 	}
 	return (mat);

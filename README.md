@@ -28,4 +28,5 @@ Minimap.
 | `D` | Move right |
 | `←` | Rotate left |
 | `→` | Rotate right |
-| `ESC` | Quit Game |
+| `Tab ↹` | Toggle minimap |
+| `Esc` | Quit Game |

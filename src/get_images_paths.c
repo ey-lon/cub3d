@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:15 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:32:28 by abettini         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:06:06 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	ft_check_img_path(char *path)
 	return (0);
 }
 
-int	ft_check_img_err(char *str, void *img)
+int	ft_check_img_err(char *str, char *path)
 {
 	if (!ft_isspace(str[2]))
 	{
 		ft_dprintf(2, "Error\nInvalid info\n");
 		return (1);
 	}
-	else if (img != 0)
+	else if (path != 0)
 	{
 		ft_dprintf(2, "Error\nReassignment of texture.\n");
 		return (1);
@@ -48,7 +48,7 @@ int	ft_get_img_path(t_data *data, char **s)
 	char	*str;
 
 	str = *s;
-	if (ft_check_img_err(str, data->img))
+	if (ft_check_img_err(str, data->path))
 		return (-1);
 	str += 2;
 	while (ft_isspace(*str))

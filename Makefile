@@ -106,6 +106,6 @@ re: fclean all
 
 bonus: all
 
-.PHONY: $(NAME) all re clean fclean bonus libcomp libft_clean libft_fclean
+.PHONY: all re clean fclean bonus libcomp libft_clean libft_fclean
 
 .SILENT:

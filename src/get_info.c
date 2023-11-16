@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/29 14:37:32 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/16 10:39:29 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	ft_check_leftovers(int fd)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
-		else if (*line != '\n')
+		else if (*line == '\n')
+			;
+		else
 			check = ft_dprintf(2, "Error\nElement surplus.\n") * 0 + 1;
 		free(line);
 	}

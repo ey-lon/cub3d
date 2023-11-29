@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:40:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/29 14:42:03 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/29 10:00:30 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_get_textures(t_game *game, int fd)
 	}
 	if (check == -1)
 		return (1);
-	else if (check != 6) 
+	else if (check != 6)
 		return (ft_dprintf(2, "Error\nNot enough info.\n") * 0 + 1);
 	return (0);
 }

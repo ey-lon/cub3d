@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/28 17:41:34 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:29:46 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 # define SPEED_MOVE 0.15
 # define SPEED_ROT 0.05
 # define WALL_OFFSET 0.1
-# define PI 3.1415926535
+//# define PI 3.1415926535
 
 # define FOV 0.66
 # define TEX_WIDTH 64
@@ -141,8 +141,7 @@ void	ft_init_coord(t_game *game);
 //-------------------------------------------
 //COLORS
 int		ft_get_pixel_color(t_data *data, int x, int y);
-void	ft_recolor_pixel(t_data *data, int x, int y, int color);
-void	ft_color_area(t_data *data, int start_y, int max_y, int color);
+void	ft_set_pixel_color(t_data *data, int x, int y, int color);
 
 //-------------------------------------------
 //BACKGROUND

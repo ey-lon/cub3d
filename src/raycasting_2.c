@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:57:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:36:30 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:29:46 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,31 @@ void	ft_v5(t_game *game, t_cam *cam, t_line *line)
 		* line->step;
 }
 
-void	ft_v6(t_game *game, t_cam *cam, t_line *line, int x)
+void	ft_v6(t_game *game, t_line *line, int x)
+{
+	int	y;
+
+	y = 0;
+	while (y < line->draw_start)
+	{
+		ft_set_pixel_color(&game->bg, x, y, game->ceiling);
+		y++;
+	}
+	y = line->draw_end + 1;
+	while (y < WIN_HEIGHT)
+	{
+		ft_set_pixel_color(&game->bg, x, y, game->floor);
+		y++;
+	}
+}
+
+void	ft_v7(t_game *game, t_cam *cam, t_line *line, int x)
 {
 	int		y;
 	int		color;
 
 	y = line->draw_start;
-	while (y < line->draw_end)
+	while (y <= line->draw_end)
 	{
 		color = 0;
 		line->tex_y = (int)(line->tex_pos) % TEX_HEIGHT;
@@ -64,7 +82,7 @@ void	ft_v6(t_game *game, t_cam *cam, t_line *line, int x)
 			color = ft_get_pixel_color(&game->s, line->tex_x, line->tex_y);
 		else if (cam->side == 3)
 			color = ft_get_pixel_color(&game->e, line->tex_x, line->tex_y);
-		ft_recolor_pixel(&game->bg, x, y, color);
+		ft_set_pixel_color(&game->bg, x, y, color);
 		line->tex_pos += line->step;
 		y++;
 	}
@@ -76,5 +94,6 @@ void	ft_raycasting_2(t_game *game, t_cam *cam, int x)
 
 	ft_v4(cam, &line);
 	ft_v5(game, cam, &line);
-	ft_v6(game, cam, &line, x);
+	ft_v6(game, &line, x);
+	ft_v7(game, cam, &line, x);
 }

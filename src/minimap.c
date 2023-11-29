@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:55:56 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/28 17:34:08 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:29:46 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_putsquare(t_game *game, int x, int y, int color)
 		i = 0;
 		while ((i < max) && (offset + (x * max * 2) + (i * 2) < WIN_WIDTH))
 		{
-			ft_recolor_pixel(&game->bg, \
+			ft_set_pixel_color(&game->bg, \
 				offset + (x * max * 2) + (i * 2), \
 				offset + (y * max * 2) + (j * 2), \
 				color);
@@ -57,10 +57,6 @@ void	ft_minimap_base(t_game *game)
 				ft_putsquare(game, x, y, BLUE);
 			else if (map[y][x] == '0')
 				ft_putsquare(game, x, y, WHITE);
-			/* else if (map[y][x] == 'D')
-				ft_putsquare(game, x, y, PURPLE);
-			else if (map[y][x] == 'd')
-				ft_putsquare(game, x, y, GREEN); */
 			x++;
 		}
 		y++;

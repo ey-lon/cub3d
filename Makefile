@@ -46,17 +46,15 @@ SRC = main.c \
 	get_colors.c \
 	get_map.c \
 	check_map.c \
-	init_pos.c \
-	print_map.c \
+	get_starting_pos.c \
 	utils.c \
 	free_stuff.c \
 	deal_key.c \
 	deal_colors.c \
-	key_move.c \
-	key_rot.c \
+	key_movement.c \
+	key_rotation.c \
 	raycasting_1.c \
 	raycasting_2.c \
-	bg_img.c \
 	minimap.c
 
 #----------------------------------------------

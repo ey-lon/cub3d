@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stuff_1.c                                     :+:      :+:    :+:   */
+/*   free_stuff.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 17:14:26 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 15:08:43 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/29 09:55:24 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_destroy_imgs(t_game *game)
 	mlx_destroy_image(game->mlx, game->s.img);
 	mlx_destroy_image(game->mlx, game->w.img);
 	mlx_destroy_image(game->mlx, game->e.img);
+	mlx_destroy_image(game->mlx, game->bg.img);
 }
 
 void	ft_free_game(t_game *game)

@@ -6,9 +6,11 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:52 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/24 15:11:36 by abettini         ###   ########.fr       */
+/*   Updated: 2023/11/29 11:16:38 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//funzioni per stampare la mappa parsata
 
 /*
 #include "cub3d.h"

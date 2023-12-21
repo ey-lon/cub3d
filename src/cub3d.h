@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/11/29 11:29:46 by abettini         ###   ########.fr       */
+/*   Updated: 2023/12/21 12:32:13 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,9 @@
 # define WALL_OFFSET 0.1
 //# define PI 3.1415926535
 
-# define FOV 0.66
+# define FOV 0.67
 # define TEX_WIDTH 64
 # define TEX_HEIGHT 64
-# define TS 64
 
 # define UP_P 1
 # define DOWN_P 2

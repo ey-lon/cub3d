@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:53 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/14 10:33:46 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:08:59 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_get_single_col(char **s, int comma)
+static int	ft_get_single_col(char **s, int comma)
 {
 	char	*str;
 	int		col;
@@ -41,7 +41,7 @@ int	ft_get_single_col(char **s, int comma)
 	return (col);
 }
 
-int	ft_col_check(char *str, int *color)
+static int	ft_col_check(char *str, int *color)
 {
 	if (!ft_isspace(str[1]))
 	{

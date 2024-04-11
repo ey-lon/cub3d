@@ -6,13 +6,19 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:40:37 by abettini          #+#    #+#             */
-/*   Updated: 2024/04/11 12:00:28 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:13:22 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	*ft_new_window(t_game *game, int width, int height, char *name)
+int	ft_close(t_game *game)
+{
+	ft_free_game(game);
+	exit(0);
+}
+
+static void	*ft_new_window(t_game *game, int width, int height, char *name)
 {
 	void	*win;
 
@@ -20,12 +26,6 @@ void	*ft_new_window(t_game *game, int width, int height, char *name)
 	game->win.width = width;
 	game->win.height = height;
 	return (win);
-}
-
-int	ft_close(t_game *game)
-{
-	ft_free_game(game);
-	exit(0);
 }
 
 static int	ft_game(t_game *game)

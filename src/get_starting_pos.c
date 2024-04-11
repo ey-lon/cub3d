@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_pos.c                                         :+:      :+:    :+:   */
+/*   get_starting_pos.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 10:40:17 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/28 17:39:00 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:12:36 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_set_double(double *f1, double *f2, double v1, double v2)
+static void	ft_set_double(double *f1, double *f2, double v1, double v2)
 {
 	*f1 = v1;
 	*f2 = v2;
 }
 
-int	ft_get_dir(char c, t_coord *coord)
+static int	ft_get_dir(char c, t_coord *coord)
 {
 	if (c == 'E')
 	{
@@ -45,7 +45,7 @@ int	ft_get_dir(char c, t_coord *coord)
 	return (0);
 }
 
-int	ft_get_pos_dir(t_coord *coord, char **mat)
+static int	ft_get_pos_dir(t_coord *coord, char **mat)
 {
 	int	x;
 	int	y;

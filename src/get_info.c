@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:46:44 by abettini          #+#    #+#             */
-/*   Updated: 2023/11/16 10:39:29 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:11:20 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_check_leftovers(int fd)
+static int	ft_check_leftovers(int fd)
 {
 	char	*line;
 	int		check;
@@ -33,6 +33,7 @@ int	ft_check_leftovers(int fd)
 	return (check);
 }
 
+/*
 void	ft_print_info(t_game *game)
 {
 	write(1, "\n", 1);
@@ -46,8 +47,9 @@ void	ft_print_info(t_game *game)
 	ft_printmat(game->map);
 	write(1, "\n", 1);
 }
+*/
 
-void	ft_err_management(t_game *game)
+static void	ft_err_management(t_game *game)
 {
 	get_next_line(-2);
 	ft_free_imgs_paths(game);

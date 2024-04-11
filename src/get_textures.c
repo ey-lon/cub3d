@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:40:11 by abettini          #+#    #+#             */
-/*   Updated: 2023/11/29 10:00:30 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:12:57 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_get_img_path(t_data *img, char **s);
 int	ft_get_color(int *color, char **s);
 
-int	ft_compare_one(t_game *game, char **str)
+static int	ft_compare_one(t_game *game, char **str)
 {
 	int	check;
 
@@ -37,7 +37,7 @@ int	ft_compare_one(t_game *game, char **str)
 	return (check);
 }
 
-int	ft_get_img_col(t_game *game, char *str, int old_check)
+static int	ft_get_img_col(t_game *game, char *str, int old_check)
 {
 	int	check;
 

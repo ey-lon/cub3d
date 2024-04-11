@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 10:40:15 by abettini          #+#    #+#             */
-/*   Updated: 2023/09/21 15:06:06 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:10:06 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_check_img_path(char *path)
+static int	ft_check_img_path(char *path)
 {
 	int		fd;
 
@@ -26,7 +26,7 @@ int	ft_check_img_path(char *path)
 	return (0);
 }
 
-int	ft_check_img_err(char *str, char *path)
+static int	ft_check_img_err(char *str, char *path)
 {
 	if (!ft_isspace(str[2]))
 	{

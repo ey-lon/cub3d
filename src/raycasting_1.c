@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 11:03:39 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 15:04:10 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:52:56 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,13 @@ int	ft_v3(t_game *game, t_cam *cam)
 	return (hit);
 }
 
+int	ft_raycasting_1(t_game *game, t_cam *cam, int x)
+{
+	ft_v1(game, cam, x);
+	ft_v2(game, cam);
+	return (ft_v3(game, cam));
+}
+
 void	ft_raycasting(t_game *game)
 {
 	int		x;
@@ -93,9 +100,7 @@ void	ft_raycasting(t_game *game)
 	x = 0;
 	while (x < WIN_WIDTH)
 	{
-		ft_v1(game, &cam, x);
-		ft_v2(game, &cam);
-		if (ft_v3(game, &cam))
+		if (ft_raycasting_1(game, &cam, x))
 			ft_raycasting_2(game, &cam, x);
 		x++;
 	}

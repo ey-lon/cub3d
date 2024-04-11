@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 10:43:14 by abettini          #+#    #+#             */
-/*   Updated: 2023/12/21 12:32:13 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:42:59 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,6 @@ double	ft_fabs(double n);
 
 //-------------------------------------------
 //PRINT_MAP
-void	ft_print_map(t_game *game);
+//void	ft_print_map(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:41:18 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/25 16:36:19 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:40:50 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	ft_elem_count_check(char **mat, char *str)
 	while (mat[y])
 	{
 		x = 0;
-		while (mat[y][x])
+		while (mat[y][x] && count < 2)
 		{
 			if (ft_strchr(str, mat[y][x]))
 				count++;
@@ -98,7 +98,7 @@ int	ft_elem_count_check(char **mat, char *str)
 		}
 		y++;
 	}
-	return (count - 1);
+	return (!(count == 1));
 }
 
 int	ft_check_map(char **mat)

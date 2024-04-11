@@ -6,12 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:57:37 by abettini          #+#    #+#             */
-/*   Updated: 2024/04/11 11:58:50 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:19:39 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+//get wall line start and wall line end
 static void	ft_v4(t_cam *cam, t_line *line)
 {
 	if (cam->side % 2 == 0)
@@ -29,6 +30,7 @@ static void	ft_v4(t_cam *cam, t_line *line)
 		line->draw_end = WIN_HEIGHT - 1;
 }
 
+//get wall texture x
 static void	ft_v5(t_game *game, t_cam *cam, t_line *line)
 {
 	if (cam->side % 2 == 0)
@@ -46,6 +48,7 @@ static void	ft_v5(t_game *game, t_cam *cam, t_line *line)
 		* line->step;
 }
 
+//set sky(ceiling) and ground(floor) colors
 static void	ft_v6(t_game *game, t_line *line, int x)
 {
 	int	y;
@@ -64,6 +67,7 @@ static void	ft_v6(t_game *game, t_line *line, int x)
 	}
 }
 
+//get wall texture y and set wall pixel color
 static void	ft_v7(t_game *game, t_cam *cam, t_line *line, int x)
 {
 	int		y;

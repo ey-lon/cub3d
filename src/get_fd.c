@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:39:02 by abettini          #+#    #+#             */
-/*   Updated: 2023/08/17 15:57:53 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:19:42 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	ft_type_check(char *path, char *type)
+static int	ft_type_check(char *path, char *type)
 {
 	int	p_l;
 	int	t_l;
@@ -33,7 +33,7 @@ int	ft_type_check(char *path, char *type)
 	return (check);
 }
 
-int	ft_check_ifdir(char *path)
+static int	ft_check_ifdir(char *path)
 {
 	int	fd;
 

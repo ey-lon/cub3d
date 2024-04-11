@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 10:55:52 by abettini          #+#    #+#             */
-/*   Updated: 2023/12/21 12:33:05 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:27:17 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "cub3d.h"
 #define TS 64
 
-void	ft_put_single_square(t_game *game, int mx, int my)
+static void	ft_put_single_square(t_game *game, int mx, int my)
 {
 	int	x;
 	int	y;
@@ -35,7 +35,7 @@ void	ft_put_single_square(t_game *game, int mx, int my)
 	}
 }
 
-void	ft_put_squares(t_game *game)
+static void	ft_put_squares(t_game *game)
 {
 	int		x;
 	int		y;
@@ -58,7 +58,7 @@ void	ft_put_squares(t_game *game)
 	}
 }
 
-void	ft_put_ver_line(t_game *game, int mx)
+static void	ft_put_ver_line(t_game *game, int mx)
 {
 	int		x;
 	int		y;
@@ -74,7 +74,7 @@ void	ft_put_ver_line(t_game *game, int mx)
 	}
 }
 
-void	ft_put_hor_line(t_game *game, int my)
+static void	ft_put_hor_line(t_game *game, int my)
 {
 	int		x;
 	int		y;
@@ -90,7 +90,7 @@ void	ft_put_hor_line(t_game *game, int my)
 	}
 }
 
-void	ft_put_lines(t_game *game)
+static void	ft_put_lines(t_game *game)
 {
 	int		x;
 	int		y;

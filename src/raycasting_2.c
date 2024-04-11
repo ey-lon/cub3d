@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 14:57:37 by abettini          #+#    #+#             */
-/*   Updated: 2023/11/29 11:29:46 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:58:50 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_v4(t_cam *cam, t_line *line)
+static void	ft_v4(t_cam *cam, t_line *line)
 {
 	if (cam->side % 2 == 0)
 		cam->perp_wall_dist = (cam->side_dist_x - cam->delta_dist_x);
@@ -29,7 +29,7 @@ void	ft_v4(t_cam *cam, t_line *line)
 		line->draw_end = WIN_HEIGHT - 1;
 }
 
-void	ft_v5(t_game *game, t_cam *cam, t_line *line)
+static void	ft_v5(t_game *game, t_cam *cam, t_line *line)
 {
 	if (cam->side % 2 == 0)
 		line->wall_x = game->coord.pos_y + cam->perp_wall_dist * cam->ray_dir_y;
@@ -46,7 +46,7 @@ void	ft_v5(t_game *game, t_cam *cam, t_line *line)
 		* line->step;
 }
 
-void	ft_v6(t_game *game, t_line *line, int x)
+static void	ft_v6(t_game *game, t_line *line, int x)
 {
 	int	y;
 
@@ -64,7 +64,7 @@ void	ft_v6(t_game *game, t_line *line, int x)
 	}
 }
 
-void	ft_v7(t_game *game, t_cam *cam, t_line *line, int x)
+static void	ft_v7(t_game *game, t_cam *cam, t_line *line, int x)
 {
 	int		y;
 	int		color;

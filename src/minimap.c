@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 10:55:56 by abettini          #+#    #+#             */
-/*   Updated: 2023/11/29 11:29:46 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:59:38 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_putsquare(t_game *game, int x, int y, int color)
+static void	ft_putsquare(t_game *game, int x, int y, int color)
 {
 	int	i;
 	int	j;
@@ -40,7 +40,7 @@ void	ft_putsquare(t_game *game, int x, int y, int color)
 	}
 }
 
-void	ft_minimap_base(t_game *game)
+static void	ft_minimap_base(t_game *game)
 {
 	int		y;
 	int		x;
@@ -63,7 +63,7 @@ void	ft_minimap_base(t_game *game)
 	}
 }
 
-void	ft_minimap_player(t_game *game)
+static void	ft_minimap_player(t_game *game)
 {
 	int	x;
 	int	y;

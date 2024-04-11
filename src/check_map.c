@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 10:41:18 by abettini          #+#    #+#             */
-/*   Updated: 2024/04/11 11:40:50 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:01:01 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 */
 
-int	ft_wall_check(char **mat, char *str)
+static int	ft_wall_check(char **mat, char *str)
 {
 	size_t	x;
 	int		y;
@@ -59,7 +59,7 @@ int	ft_wall_check(char **mat, char *str)
 	return (0);
 }
 
-int	ft_elem_check(char **mat, char *str)
+static int	ft_elem_check(char **mat, char *str)
 {
 	int	x;
 	int	y;
@@ -79,7 +79,7 @@ int	ft_elem_check(char **mat, char *str)
 	return (0);
 }
 
-int	ft_elem_count_check(char **mat, char *str)
+static int	ft_elem_count_check(char **mat, char *str)
 {
 	int	x;
 	int	y;

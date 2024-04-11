@@ -6,13 +6,13 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 11:03:39 by abettini          #+#    #+#             */
-/*   Updated: 2024/04/11 11:52:56 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:59:09 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	ft_v1(t_game *game, t_cam *cam, int x)
+static void	ft_v1(t_game *game, t_cam *cam, int x)
 {
 	cam->camera_x = 2 * x / (double)WIN_WIDTH - 1;
 	cam->ray_dir_x = game->coord.dir_x + game->coord.plane_x * cam->camera_x;
@@ -29,7 +29,7 @@ void	ft_v1(t_game *game, t_cam *cam, int x)
 		cam->delta_dist_y = (float)INT_MAX;
 }
 
-void	ft_v2(t_game *game, t_cam *cam)
+static void	ft_v2(t_game *game, t_cam *cam)
 {
 	if (cam->ray_dir_x < 0)
 	{
@@ -57,7 +57,7 @@ void	ft_v2(t_game *game, t_cam *cam)
 	}
 }
 
-int	ft_v3(t_game *game, t_cam *cam)
+static int	ft_v3(t_game *game, t_cam *cam)
 {
 	int	hit;
 

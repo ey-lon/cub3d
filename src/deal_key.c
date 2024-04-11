@@ -6,7 +6,7 @@
 /*   By: abettini <abettini@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 09:27:34 by abettini          #+#    #+#             */
-/*   Updated: 2023/11/29 11:15:38 by abettini         ###   ########.fr       */
+/*   Updated: 2024/04/11 12:03:03 by abettini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int	ft_deal_key(int key, t_game *game)
 		game->keys_pressed |= ROT_L_P;
 	else if (key == ARR_RIGHT)
 		game->keys_pressed |= ROT_R_P;
+	else
+		game->event = 0;
 	return (0);
 }
 
@@ -51,6 +53,8 @@ int	ft_release_key(int key, t_game *game)
 		game->keys_pressed &= ~ROT_R_P;
 	else if (key == KEY_TAB)
 		game->minimap ^= 1;
+	else
+		game->event = 0;
 	return (0);
 }
 
